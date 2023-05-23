@@ -1,0 +1,69 @@
+.alertHidden { 
+	display: none;
+    width: 100%;
+}
+.custom-btn {
+    float: right;
+    width: 150px;
+}
+.custom-form-group {
+	margin-bottom: 0;
+}
+.helpLogin {
+    text-align: right;
+    font-size: 14px;
+}
+.reset-usename-pass h4 {
+    margin: 15px 0 0 26px;
+    font-size: 16px;
+    color: #333;
+    font-weight: normal;
+}
+.reset-usename-pass .card-body.p-4.mt-2 {
+    padding: 5px 25px !important;
+}
+.importSheet{
+	text-align: center;
+}
+.floatleft {
+    float: left;
+    width: 50%;
+    margin-top: 15px;
+}
+.floatright {
+	float: right !important;
+	margin-top: 0;
+}
+#formpost {
+    height: 350px;
+    border: none;
+}
+@media (min-width: 1200px) {
+.container {
+    max-width: 100%;
+}
+}
+fieldset {
+    padding: 10px 25px;
+    margin: 15px 0px;
+    border: 1px solid #dddddd;
+    background-color: #fafafa;
+}
+fieldset legend {
+    display: block;
+    width: auto;
+    padding: 3px 10px;
+    margin-bottom: 0;
+    font-size: 15px;
+    line-height: inherit;
+    color: #333;
+    border: 1px solid #ddd;
+    background-color: #ffffff;
+}
+.btn-standard {
+    min-width: 150px;
+    margin: 5px;
+}
+.information-row > * {
+    margin: 5px 10px;
+}
