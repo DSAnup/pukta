@@ -36,9 +36,9 @@
                           <div class="container">
                             <div class="row"> 
                                 <div class="col-md-6">
-                                    <form action="/partialIndex.cfm?area=Property&action=PropertyUpdateAction" method="post" target="formpost">
+                                    <form action="/partialIndex.cfm?area=Property&action=PropertyUpdateAction" method="post" target="formpost" id="myForm">
                                         <div class="form-group">
-                                            <label for="AddressLine1">Address Line 1</label>
+                                            <label for="AddressLine1">Address Line 1 *</label>
                                             <input type="text" name="AddressLine1" id="AddressLine1" class="form-control required" value="#qPropertySelect.AddressLine1#">
                                         </div>
                                         <div class="form-group">
@@ -46,15 +46,15 @@
                                             <input type="text" name="AddressLine2" id="AddressLine2" class="form-control required" value="#qPropertySelect.AddressLine2#">
                                         </div>
                                         <div class="form-group">
-                                            <label for="City">City</label>
+                                            <label for="City">City *</label>
                                             <input type="text" name="City" id="City" class="form-control required" value="#qPropertySelect.City#">
                                         </div>
                                         
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="StateID">State</label>
-                                            <select class="form-control" data-toggle="select2" name="StateID" data-placeholder="Choose a State...">
+                                            <label for="StateID">State *</label>
+                                            <select class="form-control"  name="StateID" data-placeholder="Choose a State...">
                                                 <option value="">&nbsp;</option>
                                                 <cfloop query="qStateSelect">
                                                     <option value="#qStateSelect.StateID#" <cfif qStateSelect.StateID eq qPropertySelect.StateID>selected</cfif>>#qStateSelect.stateName#</option>
@@ -62,13 +62,16 @@
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <label for="ZipCode">Zip Code</label>
+                                            <label for="ZipCode">Zip Code *</label>
                                             <input type="number" name="ZipCode" id="ZipCode" class="form-control required" value="#qPropertySelect.ZipCode#">
                                         </div>
-                                        
-                                        <input type="hidden" name="PropertyID" value="#url.PropertyID#" />
-                                        <a href="index.cfm?area=Property&action=PropertySelect" class="btn btn-danger waves-effect waves-light">Cancel</a>
-                                        <button type="submit" class="btn btn-purple waves-effect waves-light float-right">Update Property</button>
+                                        <div class="float-right">
+                                            <input type="hidden" name="PropertyID" value="#url.PropertyID#" />
+                                            <a href="index.cfm?area=Property&action=PropertySelect" class="btn btn-danger waves-effect waves-light">Cancel</a>
+                                            <a class="btn btn-pink waves-effect waves-light" onclick="resetform()" href="##">Reset</a>
+                                            <button type="submit" class="btn btn-purple waves-effect waves-light">Update Property</button>
+
+                                        </div>
                                     
                                     </form>
                                 </div>
@@ -89,9 +92,7 @@
       <!-- End card -->
   </div>
   <!-- end col -->
-</div>									
-                          
-                          
+</div>									               
 
 
 

@@ -26,17 +26,17 @@
 							<a href="##">
 							<i class="mdi mdi-protocol"></i> Property </a>
 							<ul class="submenu">
-								<li><a href="index.cfm?area=Property&action=PropertySelect"> <i class="mdi mdi-protocol"></i> Add Property</a></li>
-								<li><a href="index.cfm?area=PropertySection&action=PropertySectionSelect"> <i class="mdi mdi-bee"></i> Add Property Section</a></li>
+								<li><a href="index.cfm?area=Property&action=PropertySelect"> <i class="mdi mdi-protocol"></i> Property Manager</a></li>
+								<li><a href="index.cfm?area=PropertySection&action=PropertySectionSelect"> <i class="mdi mdi-bee"></i> Property Section Manager</a></li>
 							</ul>
 						</li>
 						<li class="has-submenu">
 							<a href="##">
 							<i class="mdi mdi-equalizer"></i> Expense </a>
 							<ul class="submenu">
-								<li><a href="index.cfm?area=ExpenseType&action=ExpenseTypeSelect"> <i class="mdi mdi-equalizer"></i> Add Expense Type</a></li>
-								<li><a href="index.cfm?area=Transaction&action=TransactionSelect"> <i class="mdi mdi-bottle-tonic-outline"></i> Add Transaction</a></li>
-								<li><a href="index.cfm?area=Receipt&action=ReceiptSelect"> <i class="mdi mdi-cash-usd-outline"></i> Add Receipt</a></li>
+								<li><a href="index.cfm?area=ExpenseType&action=ExpenseTypeSelect"> <i class="mdi mdi-equalizer"></i> Expense Type Manager</a></li>
+								<li><a href="index.cfm?area=Transaction&action=TransactionSelect"> <i class="mdi mdi-bottle-tonic-outline"></i> Transaction Manager</a></li>
+								<li><a href="index.cfm?area=Receipt&action=ReceiptSelect"> <i class="mdi mdi-cash-usd-outline"></i> Receipt Manager</a></li>
 							</ul>
 						</li>
 

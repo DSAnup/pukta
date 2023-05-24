@@ -33,7 +33,7 @@
                                 <div class="col-md-6">
                                     <form action="/partialIndex.cfm?area=Property&action=PropertyInsertAction" method="post" target="formpost">
                                         <div class="form-group">
-                                            <label for="AddressLine1">Address Line 1</label>
+                                            <label for="AddressLine1">Address Line 1 *</label>
                                             <input type="text" name="AddressLine1" id="AddressLine1" class="form-control required" value="">
                                         </div>
                                         <div class="form-group">
@@ -41,14 +41,14 @@
                                             <input type="text" name="AddressLine2" id="AddressLine2" class="form-control required" value="">
                                         </div>
                                         <div class="form-group">
-                                            <label for="City">City</label>
+                                            <label for="City">City *</label>
                                             <input type="text" name="City" id="City" class="form-control required" value="">
                                         </div>
                                         
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="StateID">State</label>
+                                            <label for="StateID">State *</label>
                                             <select class="form-control" data-toggle="select2" name="StateID" data-placeholder="Choose a State...">
                                                 <option value="">&nbsp;</option>
                                                 <cfloop query="qStateSelect">
@@ -57,13 +57,13 @@
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <label for="ZipCode">Zip Code</label>
+                                            <label for="ZipCode">Zip Code *</label>
                                             <input type="number" name="ZipCode" id="ZipCode" class="form-control required" value="">
                                         </div>
 
                                         <a href="index.cfm?area=Property&action=PropertySelect" class="btn btn-danger waves-effect waves-light">Cancel</a>
                                         <a class="btn btn-pink waves-effect waves-light" onclick="resetform()" href="##">Reset</a>
-                                        <button type="submit" class="btn btn-purple waves-effect waves-light float-right">Add Property</button>
+                                        <button type="submit" class="btn btn-purple waves-effect waves-light">Add Property</button>
                                     
                                     </form>
                                 </div>

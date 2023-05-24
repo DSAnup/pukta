@@ -171,8 +171,12 @@
     <!--- form reset --->
 	<script>
         function resetform() {
-                $('form').get(0).reset() 
+            var elements = document.getElementsByTagName("input");
+            for (var ii=0; ii < elements.length; ii++) {
+                    elements[ii].value = "";
             }
+            $("option:selected").prop("selected", false)
+        }
     </script>
 	
 		
