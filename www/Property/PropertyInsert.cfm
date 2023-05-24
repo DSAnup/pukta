@@ -49,8 +49,8 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="StateID">State *</label>
-                                            <select class="form-control" data-toggle="select2" name="StateID" data-placeholder="Choose a State...">
-                                                <option value="">&nbsp;</option>
+                                            <select class="form-control" name="StateID">
+                                                <option value="">Choose a State</option>
                                                 <cfloop query="qStateSelect">
                                                     <option value="#qStateSelect.StateID#">#qStateSelect.stateName#</option>
                                                 </cfloop>
@@ -60,10 +60,11 @@
                                             <label for="ZipCode">Zip Code *</label>
                                             <input type="number" name="ZipCode" id="ZipCode" class="form-control required" value="">
                                         </div>
-
-                                        <a href="index.cfm?area=Property&action=PropertySelect" class="btn btn-danger waves-effect waves-light">Cancel</a>
-                                        <a class="btn btn-pink waves-effect waves-light" onclick="resetform()" href="##">Reset</a>
-                                        <button type="submit" class="btn btn-purple waves-effect waves-light">Add Property</button>
+                                        <div class="float-right">
+                                            <a href="index.cfm?area=Property&action=PropertySelect" class="btn btn-danger waves-effect waves-light">Cancel</a>
+                                            <a class="btn btn-pink waves-effect waves-light" onclick="resetform()" href="##">Reset</a>
+                                            <button type="submit" class="btn btn-purple waves-effect waves-light">Add Property</button>
+                                        </div>
                                     
                                     </form>
                                 </div>

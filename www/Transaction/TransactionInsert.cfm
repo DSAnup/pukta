@@ -48,18 +48,18 @@
                                             <input type="text" name="Payee" id="Payee" class="form-control required" value="">
                                         </div>
                                         <div class="form-group">
-                                            <label for="PropertyID">Property Address</label>
-                                            <select class="form-control" data-toggle="select2" name="PropertyID" data-placeholder="Choose a Property Address...">
-                                                <option value="">&nbsp;</option>
+                                            <label for="PropertyID">Property</label>
+                                            <select class="form-control" name="PropertyID">
+                                                <option value="">Choose a Property</option>
                                                 <cfloop query="qPropertySelect">
                                                     <option value="#qPropertySelect.PropertyID#">#qPropertySelect.AddressLine1#</option>
                                                 </cfloop>
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <label for="PropertySectionID">Property Section Name</label>
-                                            <select class="form-control" data-toggle="select2" name="PropertySectionID" data-placeholder="Choose a Property Section ...">
-                                                <option value="">&nbsp;</option>
+                                            <label for="PropertySectionID">Property Section</label>
+                                            <select class="form-control" name="PropertySectionID">
+                                                <option value="">Choose a Property Section</option>
                                                 <cfloop query="qPropertySectionSelect">
                                                     <option value="#qPropertySectionSelect.PropertySectionID#">#qPropertySectionSelect.PropertySectionName#</option>
                                                 </cfloop>
@@ -74,8 +74,8 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="ExpenseTypeID">Expense Type</label>
-                                            <select class="form-control" data-toggle="select2" name="ExpenseTypeID" data-placeholder="Choose a Expense Type...">
-                                                <option value="">&nbsp;</option>
+                                            <select class="form-control" name="ExpenseTypeID">
+                                                <option value="">Choose a Expenese Type</option>
                                                 <cfloop query="qExpenseTypeSelect">
                                                     <option value="#qExpenseTypeSelect.ExpenseTypeID#">#qExpenseTypeSelect.ExpenseTypeName#</option>
                                                 </cfloop>
@@ -89,10 +89,12 @@
                                             <label for="Note">Note</label>
                                             <textarea class="form-control" rows="5" id="example-textarea-input" name="Note"></textarea>
                                         </div>
-
-                                        <a href="index.cfm?area=Transaction&action=TransactionSelect" class="btn btn-danger waves-effect waves-light">Cancel</a>
-                                        <a class="btn btn-pink waves-effect waves-light" onclick="resetform()" href="##">Reset</a>
-                                        <button type="submit" class="btn btn-purple waves-effect waves-light float-right">Add Transaction</button>
+                                        
+                                        <div class="float-right">
+                                            <a href="index.cfm?area=Transaction&action=TransactionSelect" class="btn btn-danger waves-effect waves-light">Cancel</a>
+                                            <a class="btn btn-pink waves-effect waves-light" onclick="resetform()" href="##">Reset</a>
+                                            <button type="submit" class="btn btn-purple waves-effect waves-light">Add Transaction</button>
+                                        </div>
                                     
                                     </form>
                                 </div>

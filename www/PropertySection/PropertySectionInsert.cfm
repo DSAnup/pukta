@@ -30,9 +30,11 @@
                                     <label for="PropertySectionName">Property Section Name</label>
                                     <input type="text" name="PropertySectionName" id="PropertySectionName" class="form-control required" value="">
                                 </div>
-                                <a href="index.cfm?area=PropertySection&action=PropertySectionSelect" class="btn btn-danger waves-effect waves-light">Cancel</a>
-                              
-                                <button type="submit" class="btn btn-purple waves-effect waves-light float-right">Add Property Section</button>
+                                <div class="float-right">
+                                    <a href="index.cfm?area=PropertySection&action=PropertySectionSelect" class="btn btn-danger waves-effect waves-light">Cancel</a>
+                                    <a class="btn btn-pink waves-effect waves-light" onclick="resetform()" href="##">Reset </a>
+                                    <button type="submit" class="btn btn-purple waves-effect waves-light">Add Property Section</button>
+                                </div>
                             </form>
 
 

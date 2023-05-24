@@ -54,8 +54,8 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="StateID">State *</label>
-                                            <select class="form-control"  name="StateID" data-placeholder="Choose a State...">
-                                                <option value="">&nbsp;</option>
+                                            <select class="form-control"  name="StateID">
+                                                <option value="">Choose a State</option>
                                                 <cfloop query="qStateSelect">
                                                     <option value="#qStateSelect.StateID#" <cfif qStateSelect.StateID eq qPropertySelect.StateID>selected</cfif>>#qStateSelect.stateName#</option>
                                                 </cfloop>

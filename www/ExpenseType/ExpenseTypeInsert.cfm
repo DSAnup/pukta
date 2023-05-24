@@ -30,9 +30,12 @@
                                     <label for="ExpenseTypeName">Expense Type Name</label>
                                     <input type="text" name="ExpenseTypeName" id="ExpenseTypeName" class="form-control required" value="">
                                 </div>
-
-                                <a href="index.cfm?area=ExpenseType&action=ExpenseTypeSelect" class="btn btn-danger waves-effect waves-light">Cancel</a>
-                                <button type="submit" class="btn btn-purple waves-effect waves-light float-right">Add Expense Type</button>
+                                
+                                <div class="float-right">
+                                    <a href="index.cfm?area=ExpenseType&action=ExpenseTypeSelect" class="btn btn-danger waves-effect waves-light">Cancel</a>
+                                    <a class="btn btn-pink waves-effect waves-light" onclick="resetform()" href="##">Reset</a>
+                                    <button type="submit" class="btn btn-purple waves-effect waves-light">Add Expense Type</button>
+                                </div>
                             </form>
 
 

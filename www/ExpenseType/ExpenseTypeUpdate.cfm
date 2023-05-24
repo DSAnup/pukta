@@ -38,9 +38,12 @@
                                     <input type="text" name="ExpenseTypeName" id="ExpenseTypeName" class="form-control required" value="#qExpenseTypeSelect.ExpenseTypeName#">
                                 </div>
 
-                                <input type="hidden" name="ExpenseTypeID" value="#url.ExpenseTypeID#" />
-                                <a href="index.cfm?area=ExpenseType&action=ExpenseTypeSelect" class="btn btn-danger waves-effect waves-light">Cancel</a>
-                                <button type="submit" class="btn btn-purple waves-effect waves-light float-right">Update Expense Type</button>
+                                <div class="float-right">
+                                    <input type="hidden" name="ExpenseTypeID" value="#url.ExpenseTypeID#" />
+                                    <a href="index.cfm?area=ExpenseType&action=ExpenseTypeSelect" class="btn btn-danger waves-effect waves-light">Cancel</a>
+                                    <a class="btn btn-pink waves-effect waves-light" onclick="resetform()" href="##">Reset</a>
+                                    <button type="submit" class="btn btn-purple waves-effect waves-light">Update Expense Type</button>
+                                </div>
                             </form>
 
 

@@ -38,9 +38,12 @@
                                     <input type="text" name="PropertySectionName" id="PropertySectionName" class="form-control required" value="#qPropertySectionSelect.PropertySectionName#">
                                 </div>
 
-                                <input type="hidden" name="PropertySectionID" value="#url.PropertySectionID#" />
-                                <a href="index.cfm?area=PropertySection&action=PropertySectionSelect" class="btn btn-danger waves-effect waves-light">Cancel</a>
-                                <button type="submit" class="btn btn-purple waves-effect waves-light float-right">Update Property Section</button>
+                                <div class="float-right">
+                                    <input type="hidden" name="PropertySectionID" value="#url.PropertySectionID#" />
+                                    <a href="index.cfm?area=PropertySection&action=PropertySectionSelect" class="btn btn-danger waves-effect waves-light">Cancel</a>
+                                    <a class="btn btn-pink waves-effect waves-light" onclick="resetform()" href="##">Reset</a>
+                                    <button type="submit" class="btn btn-purple waves-effect waves-light">Update Property Section</button>
+                                </div>
                             </form>
 
 
