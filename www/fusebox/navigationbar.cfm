@@ -36,7 +36,7 @@
 							<ul class="submenu">
 								<li><a href="index.cfm?area=ExpenseType&action=ExpenseTypeSelect"> <i class="mdi mdi-equalizer"></i> Expense Type Manager</a></li>
 								<li><a href="index.cfm?area=Transaction&action=TransactionSelect"> <i class="mdi mdi-bottle-tonic-outline"></i> Transaction Manager</a></li>
-								<li><a href="index.cfm?area=Receipt&action=ReceiptSelect"> <i class="mdi mdi-cash-usd-outline"></i> Receipt Manager</a></li>
+								<!--- <li><a href="index.cfm?area=Receipt&action=ReceiptSelect"> <i class="mdi mdi-cash-usd-outline"></i> Receipt Manager</a></li> --->
 							</ul>
 						</li>
 
