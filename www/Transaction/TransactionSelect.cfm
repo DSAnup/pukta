@@ -1,14 +1,13 @@
-  <cfquery datasource="#request.dsnameReader#" name="qTransactionSelect"> 
+<cfquery datasource="#request.dsnameReader#" name="qTransactionSelect"> 
 
-SELECT T.*,  P.AddressLine1, PS.PropertySectionName, E.ExpenseTypeName, R.ReceiptFileName, R.TransactionID AS RT, R.ReceiptFileName, R.ReceiptTitle
+	SELECT T.*,  P.AddressLine1, PS.PropertySectionName, E.ExpenseTypeName, R.ReceiptFileName, R.TransactionID AS RT, R.ReceiptFileName, R.ReceiptTitle
 	FROM TransactionDetails AS T 
 	LEFT JOIN Property AS P ON T.PropertyID = P.PropertyID
 	LEFT JOIN PropertySection AS PS ON T.PropertySectionID = PS.PropertySectionID	 
 	LEFT JOIN ExpenseType AS E ON T.ExpenseTypeID = E.ExpenseTypeID	
 	LEFT JOIN Receipt AS R ON T.TransactionID = R.TransactionID
-	WHERE R.TransactionID IS NOT NULL
           
-  </cfquery>
+</cfquery>
 
 <div class="row">
 	<div class="col-12">
@@ -82,17 +81,17 @@ SELECT T.*,  P.AddressLine1, PS.PropertySectionName, E.ExpenseTypeName, R.Receip
 												#DateFormat(qTransactionSelect.TransactionDate, "yyyy-mm-dd")#
 											</td>
 											<td>
-												<cfloop>
-
-													<a href="#request.publicSiteDomain#/assets/uploads/#qTransactionSelect.ReceiptFileName#" target="_blank">
-														<cfif listLast(qTransactionSelect.ReceiptFileName, '.') eq 'jpg'>
-															<i class="mdi mdi-file-image-outline md2x"  data-toggle="tooltip" data-placement="right" title="#qTransactionSelect.ReceiptTitle#"></i>
-														<cfelse>
-															<i class="mdi mdi-file-pdf-box-outline md2x"  data-toggle="tooltip" data-placement="right" title="#qTransactionSelect.ReceiptTitle#"></i>
-														</cfif>
-													</a>
-													
-												</cfloop>
+												<cfif qTransactionSelect.ReceiptFileName neq ''>
+													<cfloop>
+														<a href="#request.publicSiteDomain#/assets/uploads/#qTransactionSelect.ReceiptFileName#" target="_blank">
+															<cfif listLast(qTransactionSelect.ReceiptFileName, '.') eq 'jpg'>
+																<i class="mdi mdi-file-image-outline md2x"  data-toggle="tooltip" data-placement="right" title="#qTransactionSelect.ReceiptTitle#"></i>
+															<cfelse>
+																<i class="mdi mdi-file-pdf-box-outline md2x"  data-toggle="tooltip" data-placement="right" title="#qTransactionSelect.ReceiptTitle#"></i>
+															</cfif>
+														</a>
+													</cfloop>
+												</cfif>
 											<a data-toggle="modal" data-target="##con-close-modal_#qTransactionSelect.TransactionID#" href="##"> <i class="mdi mdi-file-plus md2x" data-toggle="tooltip" data-placement="right" title="Add Reciept"></i> </a>
 											
 											<!--- Modal  --->
