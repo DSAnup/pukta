@@ -1,6 +1,9 @@
 <cfquery datasource="#request.dsnameReader#" name="qTransactionSelect"> 
 
-	SELECT T.*,  P.AddressLine1, PS.PropertySectionName, E.ExpenseTypeName, R.ReceiptFileName, R.TransactionID AS RT, R.ReceiptFileName, R.ReceiptTitle
+	SELECT 
+		T.*, PS.PropertySectionName, E.ExpenseTypeName, R.ReceiptFileName, R.TransactionID AS RT, R.ReceiptFileName, R.ReceiptTitle, 
+	 CONCAT(P.AddressLine1,' - ', P.City ,' - ', (SELECT stateName FROM State WHERE StateID = P.StateID) ,' - ', P.ZipCode) AS Property
+	 
 	FROM TransactionDetails AS T 
 	LEFT JOIN Property AS P ON T.PropertyID = P.PropertyID
 	LEFT JOIN PropertySection AS PS ON T.PropertySectionID = PS.PropertySectionID	 
@@ -66,7 +69,7 @@
 											#qTransactionSelect.Payee#
 											</td>
 											<td>
-											#qTransactionSelect.AddressLine1#
+											#qTransactionSelect.Property#
 											</td>
 											<td>
 											#qTransactionSelect.PropertySectionName#

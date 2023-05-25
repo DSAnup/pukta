@@ -5,8 +5,8 @@
 </cfquery>
 
 <cfquery datasource="#request.dsnameReader#" name="qPropertySelect"> 
-    SELECT *
-      FROM  Property    
+    SELECT CONCAT(P.AddressLine1,' - ', P.City ,' - ', (SELECT stateName FROM State WHERE StateID = P.StateID) ,' - ', P.ZipCode) AS Property, P.PropertyID
+      FROM  Property AS P
 </cfquery>
 
 <cfquery datasource="#request.dsnameReader#" name="qPropertySectionSelect"> 
@@ -57,7 +57,7 @@
                                             <select class="form-control" name="PropertyID">
                                                 <option value="">Choose a Property Address</option>
                                                 <cfloop query="qPropertySelect">
-                                                    <option value="#qPropertySelect.PropertyID#" <cfif qTransactionSelect.PropertyID eq qPropertySelect.PropertyID>selected</cfif>>#qPropertySelect.AddressLine1#</option>
+                                                    <option value="#qPropertySelect.PropertyID#" <cfif qTransactionSelect.PropertyID eq qPropertySelect.PropertyID>selected</cfif>>#qPropertySelect.Property#</option>
                                                 </cfloop>
                                             </select>
                                         </div>
