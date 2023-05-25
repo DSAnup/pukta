@@ -83,10 +83,17 @@ SELECT T.*,  P.AddressLine1, PS.PropertySectionName, E.ExpenseTypeName, R.Receip
 											</td>
 											<td>
 												<cfloop>
-													<a href="#request.publicSiteDomain#/assets/uploads/#qTransactionSelect.ReceiptFileName#" target="_blank" data-toggle="tooltip" data-placement="right" title="#qTransactionSelect.ReceiptTitle#"><i class="mdi mdi-file-image-outline"></i></a>
+
+													<a href="#request.publicSiteDomain#/assets/uploads/#qTransactionSelect.ReceiptFileName#" target="_blank">
+														<cfif listLast(qTransactionSelect.ReceiptFileName, '.') eq 'jpg'>
+															<i class="mdi mdi-file-image-outline md2x"  data-toggle="tooltip" data-placement="right" title="#qTransactionSelect.ReceiptTitle#"></i>
+														<cfelse>
+															<i class="mdi mdi-file-pdf-box-outline md2x"  data-toggle="tooltip" data-placement="right" title="#qTransactionSelect.ReceiptTitle#"></i>
+														</cfif>
+													</a>
 													
 												</cfloop>
-											<a data-toggle="modal" data-target="##con-close-modal_#qTransactionSelect.TransactionID#" href="##"> <i class="mdi mdi-file-plus" data-toggle="tooltip" data-placement="right" title="Add Reciept"></i> </a>
+											<a data-toggle="modal" data-target="##con-close-modal_#qTransactionSelect.TransactionID#" href="##"> <i class="mdi mdi-file-plus md2x" data-toggle="tooltip" data-placement="right" title="Add Reciept"></i> </a>
 											
 											<!--- Modal  --->
 											<div id="con-close-modal_#qTransactionSelect.TransactionID#" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
