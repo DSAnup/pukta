@@ -23,6 +23,7 @@
 								<hr class="customsolid">
 								<li><a href="index.cfm?area=ExpenseType&action=ExpenseTypeSelect"> <i class="mdi mdi-equalizer"></i> Expense Type Manager</a></li>
 								<hr class="customsolid">
+								<li><a href="index.cfm?area=PropertyPhase&action=PropertyPhaseSelect"> <i class="mdi mdi-bee"></i> Property Phase Manager</a></li>
 								<li><a href="index.cfm?area=PropertySection&action=PropertySectionSelect"> <i class="mdi mdi-bee"></i> Property Section Manager</a></li>
 							</ul>
 						</li>

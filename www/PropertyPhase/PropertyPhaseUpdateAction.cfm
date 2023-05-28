@@ -3,8 +3,8 @@
 	<cfset errorMessage = "">
 
 	<!--- make sure all required inputs are provided --->
-	<cfif trim(form.PropertySectionName) eq "">
-		<cfset errorMessage = errorMessage & "Property Section Name must be provided.<br>">	
+	<cfif trim(form.PropertyPhaseName) eq "">
+		<cfset errorMessage = errorMessage & "Property Phase Name must be provided.<br>">	
 	</cfif>
 
       <cfif errorMessage gt "">
@@ -18,15 +18,15 @@
     <cfquery datasource="#request.dsnameWriter#" >
 
 		
-	UPDATE [dbo].[PropertySection]
-	SET [PropertySectionName] = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.PropertySectionName#">
+	UPDATE [dbo].[PropertyPhase]
+	SET [PropertyPhaseName] = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.PropertyPhaseName#">
 		,[DateLastUpdated] = getDate()
 		,[UpdatedBy]  = <cfqueryparam cfsqltype="cf_sql_integer" value="#application.SystemUserID#">
  	WHERE 
- 		PropertySectionID = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.PropertySectionID#">	
+ 		PropertyPhaseID = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.PropertyPhaseID#">	
 	
     </cfquery>
     
         
-<cfset session.OnLoadMessage = "success('Property Section Name Updated Successfully')">
-<cfset relocate (area = "PropertySection", action = "PropertySectionSelect")>
+<cfset session.OnLoadMessage = "success('Property Phase Name Updated Successfully')">
+<cfset relocate (area = "PropertyPhase", action = "PropertyPhaseSelect")>
