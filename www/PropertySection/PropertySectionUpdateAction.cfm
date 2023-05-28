@@ -6,8 +6,11 @@
 	<cfif trim(form.PropertySectionName) eq "">
 		<cfset errorMessage = errorMessage & "Property Section Name must be provided.<br>">	
 	</cfif>
+	<cfif trim(form.PropertyPhaseID) eq "">
+		<cfset errorMessage = errorMessage & "Property Phase  must be provided.<br>">	
+	</cfif>
 
-      <cfif errorMessage gt "">
+    <cfif errorMessage gt "">
 		<cfset showErrorMessage (Message = errorMessage)>	
 		<cfabort>
 	</cfif>  
@@ -20,6 +23,7 @@
 		
 	UPDATE [dbo].[PropertySection]
 	SET [PropertySectionName] = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.PropertySectionName#">
+		,[PropertyPhaseID] = <cfqueryparam cfsqltype="cf_sql_integer" value="#form.PropertyPhaseID#">
 		,[DateLastUpdated] = getDate()
 		,[UpdatedBy]  = <cfqueryparam cfsqltype="cf_sql_integer" value="#application.SystemUserID#">
  	WHERE 

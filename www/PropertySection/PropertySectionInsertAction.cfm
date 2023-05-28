@@ -5,6 +5,9 @@
 	<cfif trim(form.PropertySectionName) eq "">
 		<cfset errorMessage = errorMessage & "Property Section must be provided.<br>">	
 	</cfif>
+	<cfif trim(form.PropertyPhaseID) eq "">
+		<cfset errorMessage = errorMessage & "Property Phase  must be provided.<br>">	
+	</cfif>
 
       <cfif errorMessage gt "">
 		<cfset showErrorMessage (Message = errorMessage)>	
@@ -16,12 +19,14 @@
     <cfquery datasource="#request.dsnameWriter#" >
 	INSERT INTO [dbo].[PropertySection]
        ([PropertySectionName]
+	   ,[PropertyPhaseID]
 	   ,[DateCreated]
 	   ,[CreatedBy]
 	   ,[DateLastUpdated]
 	   ,[UpdatedBy])
  	VALUES
        (<cfqueryparam cfsqltype="cf_sql_varchar" value="#form.PropertySectionName#">
+       ,<cfqueryparam cfsqltype="cf_sql_integer" value="#form.PropertyPhaseID#">
 	   ,getDate()
 	   ,<cfqueryparam cfsqltype="cf_sql_integer" value="#application.SystemUserID#">
 	   ,getDate()

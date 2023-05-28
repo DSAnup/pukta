@@ -1,6 +1,7 @@
   <cfquery datasource="#request.dsnameReader#" name="qPropertySectionSelect"> 
-      select *
-        from  PropertySection    
+      	SELECT 			PS.*, PP.PropertyPhaseName
+        FROM  			PropertySection AS PS
+			LEFT JOIN 	PropertyPhase AS PP ON PS.PropertyPhaseID = PP.PropertyPhaseID
           
   </cfquery>
 
@@ -37,33 +38,27 @@
 										<tr>
 											<th>ID</th>
 											<th> Property Section Name</th>
+											<th> Property Phase Name</th>
 											<th>Action</th>
 										</tr>
 									</thead>
-						
 									<tbody>
-
-      ,
 									<cfloop query="qPropertySectionSelect">
 										<tr>
 											<td>
-											
-											#qPropertySectionSelect.PropertySectionID#
+												#currentRow#
 											</td>
-
 											<td>
-											#qPropertySectionSelect.PropertySectionName#
+												#qPropertySectionSelect.PropertySectionName#
 											</td>
-
-
 											<td>
-						
+												#qPropertySectionSelect.PropertyPhaseName#
+											</td>
+											<td>
 												<a href="#cgi.script_name#?area=#url.area#&action=PropertySectionUpdate&PropertySectionID=#PropertySectionID#">Edit</a>
-								
 											</td>
 										</tr>
 									</cfloop>
-									
 									</tbody>
 								</table>
 							</div>		

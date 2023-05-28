@@ -1,3 +1,7 @@
+<cfquery datasource="#request.dsnameReader#" name="qPropertyPhaseSelect"> 
+    SELECT *
+      FROM  PropertyPhase    
+</cfquery>
 <div class="row">
   <div class="col-12">
       <div class="page-title-box">
@@ -29,6 +33,15 @@
                                 <div class="form-group">
                                     <label for="PropertySectionName">Property Section Name</label>
                                     <input type="text" name="PropertySectionName" id="PropertySectionName" class="form-control required" value="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="PropertyPhase">Property Phase *</label>
+                                    <select class="form-control" name="PropertyPhaseID">
+                                        <option value="">Choose a Property Phase</option>
+                                        <cfloop query="qPropertyPhaseSelect">
+                                            <option value="#qPropertyPhaseSelect.PropertyPhaseID#">#qPropertyPhaseSelect.PropertyPhaseName#</option>
+                                        </cfloop>
+                                    </select>
                                 </div>
                                 <div class="float-right">
                                     <a href="index.cfm?area=PropertySection&action=PropertySectionSelect" class="btn btn-danger waves-effect waves-light">Cancel</a>

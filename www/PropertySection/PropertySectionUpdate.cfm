@@ -1,7 +1,12 @@
 <cfquery datasource="#request.dsnameReader#" name="qPropertySectionSelect"> 
-    select PropertySectionName
-      from PropertySection where PropertySectionID = <cfqueryparam cfsqltype="cf_sql_integer" value="#PropertySectionID#">
-        
+    SELECT PropertySectionName, PropertyPhaseID 
+        FROM PropertySection 
+        WHERE PropertySectionID = <cfqueryparam cfsqltype="cf_sql_integer" value="#PropertySectionID#">
+</cfquery>
+
+<cfquery datasource="#request.dsnameReader#" name="qPropertyPhaseSelect"> 
+    SELECT *
+        FROM  PropertyPhase    
 </cfquery>
 
 <div class="row">
@@ -36,6 +41,15 @@
                                 <div class="form-group">
                                     <label for="PropertySectionName">Property Section Name</label>
                                     <input type="text" name="PropertySectionName" id="PropertySectionName" class="form-control required" value="#qPropertySectionSelect.PropertySectionName#">
+                                </div>
+                                <div class="form-group">
+                                    <label for="PropertyPhase">Property Phase *</label>
+                                    <select class="form-control" name="PropertyPhaseID">
+                                        <option value="">Choose a Property Phase</option>
+                                        <cfloop query="qPropertyPhaseSelect">
+                                            <option value="#qPropertyPhaseSelect.PropertyPhaseID#" <cfif qPropertyPhaseSelect.PropertyPhaseID eq qPropertySectionSelect.PropertyPhaseID>selected</cfif>>#qPropertyPhaseSelect.PropertyPhaseName#</option>
+                                        </cfloop>
+                                    </select>
                                 </div>
 
                                 <div class="float-right">

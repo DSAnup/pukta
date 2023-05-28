@@ -40,29 +40,20 @@
 											<th>Action</th>
 										</tr>
 									</thead>
-						
 									<tbody>
-
-      ,
 									<cfloop query="qPropertyPhaseSelect">
 										<tr>
 											<td>
 												#currentRow#
 											</td>
-
 											<td>
 											#qPropertyPhaseSelect.PropertyPhaseName#
 											</td>
-
-
 											<td>
-						
 												<a href="#cgi.script_name#?area=#url.area#&action=PropertyPhaseUpdate&PropertyPhaseID=#PropertyPhaseID#">Edit</a>
-								
 											</td>
 										</tr>
 									</cfloop>
-									
 									</tbody>
 								</table>
 							</div>		
