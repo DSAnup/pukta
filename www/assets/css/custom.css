@@ -70,6 +70,7 @@ fieldset legend {
 .md2x {
     font-size: 24px;
 }
-hr{
-    margin: 0px !important;
+.customsolid{
+    margin: 0px;
+    border-top: 1px solid darkgrey; 
 }

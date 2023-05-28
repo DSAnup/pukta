@@ -20,9 +20,9 @@
 							<ul class="submenu">
 								<li><a href="index.cfm?area=WebTop&action=CountryManager"> <i class="mdi mdi-globe-model"></i> Country Manager</a></li>
 								<li><a href="index.cfm?area=WebTop&action=UsStateManager"> <i class="mdi mdi-map-marker-check"></i> US State Manager</a></li>
-								<hr class="solid">
+								<hr class="customsolid">
 								<li><a href="index.cfm?area=ExpenseType&action=ExpenseTypeSelect"> <i class="mdi mdi-equalizer"></i> Expense Type Manager</a></li>
-								<hr class="solid">
+								<hr class="customsolid">
 								<li><a href="index.cfm?area=PropertySection&action=PropertySectionSelect"> <i class="mdi mdi-bee"></i> Property Section Manager</a></li>
 							</ul>
 						</li>
