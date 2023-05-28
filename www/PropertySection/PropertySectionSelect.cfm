@@ -1,8 +1,7 @@
   <cfquery datasource="#request.dsnameReader#" name="qPropertySectionSelect"> 
-      	SELECT 			PS.*, PP.PropertyPhaseName
-        FROM  			PropertySection AS PS
-			LEFT JOIN 	PropertyPhase AS PP ON PS.PropertyPhaseID = PP.PropertyPhaseID
-          
+      	SELECT	PS.*, PP.PropertyPhaseName
+        FROM	PropertySection AS PS
+			LEFT JOIN	PropertyPhase AS PP ON PS.PropertyPhaseID = PP.PropertyPhaseID      
   </cfquery>
 
 <div class="row">

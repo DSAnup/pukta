@@ -1,7 +1,6 @@
   <cfquery datasource="#request.dsnameReader#" name="qPropertyPhaseSelect"> 
-      select *
-        from  PropertyPhase    
-          
+    SELECT *
+    FROM  PropertyPhase       
   </cfquery>
 
 <div class="row">
@@ -47,7 +46,7 @@
 												#currentRow#
 											</td>
 											<td>
-											#qPropertyPhaseSelect.PropertyPhaseName#
+												#qPropertyPhaseSelect.PropertyPhaseName#
 											</td>
 											<td>
 												<a href="#cgi.script_name#?area=#url.area#&action=PropertyPhaseUpdate&PropertyPhaseID=#PropertyPhaseID#">Edit</a>

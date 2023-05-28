@@ -1,16 +1,16 @@
 <cfquery datasource="#request.dsnameReader#" name="qPropertySelect"> 
     SELECT CONCAT(P.AddressLine1,' - ', P.City ,' - ', (SELECT stateName FROM State WHERE StateID = P.StateID) ,' - ', P.ZipCode) AS Property, P.PropertyID
-      FROM  Property AS P
+    FROM  Property AS P
 </cfquery>
 
 <cfquery datasource="#request.dsnameReader#" name="qPropertySectionSelect"> 
     SELECT *
-      FROM  PropertySection    
+    FROM  PropertySection    
 </cfquery>
 
 <cfquery datasource="#request.dsnameReader#" name="qExpenseTypeSelect"> 
     SELECT *
-      FROM  ExpenseType    
+    FROM  ExpenseType    
 </cfquery>
 
 

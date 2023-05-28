@@ -1,7 +1,6 @@
   <cfquery datasource="#request.dsnameReader#" name="qExpenseTypeSelect"> 
-      select *
-        from  ExpenseType    
-          
+    SELECT *
+    FROM  ExpenseType     
   </cfquery>
 
 <div class="row">
@@ -40,30 +39,20 @@
 											<th>Action</th>
 										</tr>
 									</thead>
-						
 									<tbody>
-
-      ,
-									<cfloop query="qExpenseTypeSelect">
-										<tr>
-											<td>
-											
-											#qExpenseTypeSelect.ExpenseTypeID#
-											</td>
-
-											<td>
-											#qExpenseTypeSelect.ExpenseTypeName#
-											</td>
-
-
-											<td>
-						
-												<a href="#cgi.script_name#?area=#url.area#&action=ExpenseTypeUpdate&ExpenseTypeID=#ExpenseTypeID#">Edit</a>
-								
-											</td>
-										</tr>
-									</cfloop>
-									
+										<cfloop query="qExpenseTypeSelect">
+											<tr>
+												<td>
+													#currentRow#
+												</td>
+												<td>
+													#qExpenseTypeSelect.ExpenseTypeName#
+												</td>
+												<td>
+													<a href="#cgi.script_name#?area=#url.area#&action=ExpenseTypeUpdate&ExpenseTypeID=#ExpenseTypeID#">Edit</a>
+												</td>
+											</tr>
+										</cfloop>
 									</tbody>
 								</table>
 							</div>		

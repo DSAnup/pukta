@@ -16,7 +16,7 @@
 			>
 	</cfif>
 
-      <cfif errorMessage gt "">
+    <cfif errorMessage gt "">
 		<cfset showErrorMessage (Message = errorMessage)>	
 		<cfabort>
 	</cfif>  
@@ -37,8 +37,7 @@
 	   ,<cfqueryparam cfsqltype="cf_sql_varchar" value="#cffile.serverFile#">
 	   ,<cfqueryparam cfsqltype="cf_sql_varchar" value="#form.Note#">
 	   ,getDate()
-	   ,<cfqueryparam cfsqltype="cf_sql_integer" value="#application.SystemUserID#">)	
-        
+	   ,<cfqueryparam cfsqltype="cf_sql_integer" value="#application.SystemUserID#">)	     
     </cfquery>
     
         

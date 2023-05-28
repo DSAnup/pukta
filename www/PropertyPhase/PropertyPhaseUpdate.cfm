@@ -1,7 +1,7 @@
 <cfquery datasource="#request.dsnameReader#" name="qPropertyPhaseSelect"> 
-    select PropertyPhaseName
-      from PropertyPhase where PropertyPhaseID = <cfqueryparam cfsqltype="cf_sql_integer" value="#PropertyPhaseID#">
-        
+    SELECT PropertyPhaseName
+    FROM PropertyPhase 
+        WHERE PropertyPhaseID = <cfqueryparam cfsqltype="cf_sql_integer" value="#PropertyPhaseID#">        
 </cfquery>
 
 <div class="row">

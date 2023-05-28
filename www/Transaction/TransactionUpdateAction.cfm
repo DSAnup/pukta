@@ -22,7 +22,7 @@
 		<cfset errorMessage = errorMessage & "TransactionDate must be provided.<br>">	
 	</cfif>
 
-      <cfif errorMessage gt "">
+    <cfif errorMessage gt "">
 		<cfset showErrorMessage (Message = errorMessage)>	
 		<cfabort>
 	</cfif>  
@@ -30,22 +30,19 @@
         
         
     <!--- if a fail attempt, log the attempt, increment longin attempt and lock out if reached max try --->
-    <cfquery datasource="#request.dsnameWriter#" >
-
-		
-	UPDATE [dbo].[TransactionDetails]
-	SET [Payee] = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.Payee#">
-		,[PropertyID] = <cfqueryparam cfsqltype="cf_sql_integer" value="#form.PropertyID#">
-		,[PropertySectionID] = <cfqueryparam cfsqltype="cf_sql_integer" value="#form.PropertySectionID#">
-		,[ExpenseTypeID] = <cfqueryparam cfsqltype="cf_sql_integer" value="#form.ExpenseTypeID#">
-		,[Amount] = <cfqueryparam cfsqltype="cf_sql_float" value="#form.Amount#">
-		,[TransactionDate] = <cfqueryparam cfsqltype="cf_sql_timestamp" value="#form.TransactionDate#">
-		,[Note] = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.Note#">
-		,[DateLastUpdated] = getDate()
-		,[UpdatedBy]  = <cfqueryparam cfsqltype="cf_sql_integer" value="#application.SystemUserID#">
- 	WHERE 
-	 	TransactionID = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.TransactionID#">	
-	
+    <cfquery datasource="#request.dsnameWriter#" >	
+		UPDATE [dbo].[TransactionDetails]
+		SET [Payee] = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.Payee#">
+			,[PropertyID] = <cfqueryparam cfsqltype="cf_sql_integer" value="#form.PropertyID#">
+			,[PropertySectionID] = <cfqueryparam cfsqltype="cf_sql_integer" value="#form.PropertySectionID#">
+			,[ExpenseTypeID] = <cfqueryparam cfsqltype="cf_sql_integer" value="#form.ExpenseTypeID#">
+			,[Amount] = <cfqueryparam cfsqltype="cf_sql_float" value="#form.Amount#">
+			,[TransactionDate] = <cfqueryparam cfsqltype="cf_sql_timestamp" value="#form.TransactionDate#">
+			,[Note] = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.Note#">
+			,[DateLastUpdated] = getDate()
+			,[UpdatedBy]  = <cfqueryparam cfsqltype="cf_sql_integer" value="#application.SystemUserID#">
+		WHERE 
+			TransactionID = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.TransactionID#">	
     </cfquery>
     
         

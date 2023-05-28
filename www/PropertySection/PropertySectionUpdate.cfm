@@ -1,6 +1,6 @@
 <cfquery datasource="#request.dsnameReader#" name="qPropertySectionSelect"> 
-    SELECT PropertySectionName, PropertyPhaseID 
-        FROM PropertySection 
+    SELECT  PropertySectionName, PropertyPhaseID 
+    FROM    PropertySection 
         WHERE PropertySectionID = <cfqueryparam cfsqltype="cf_sql_integer" value="#PropertySectionID#">
 </cfquery>
 

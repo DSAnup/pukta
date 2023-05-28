@@ -1,9 +1,8 @@
-  <cfquery datasource="#request.dsnameReader#" name="qPropertySelect"> 
-      select p.*, s.stateName
-        from  Property  as p
-		left join State as s on p.StateID = s.StateID   
-          
-  </cfquery>
+<cfquery datasource="#request.dsnameReader#" name="qPropertySelect"> 
+	SELECT P.*, S.stateName
+    FROM  Property  AS P
+		LEFT JOIN State AS S ON P.StateID = S.StateID        
+</cfquery>
 
 <div class="row">
 	<div class="col-12">
@@ -42,39 +41,35 @@
 											<th> City</th>
 											<th> State</th>
 											<th> Zip Code</th>
-											<th>Action</th>
+											<th> Action</th>
 										</tr>
 									</thead>
-						
 									<tbody>
-
-      ,
-									<cfloop query="qPropertySelect">
-										<tr>
-											<td>
-											#qPropertySelect.PropertyID#
-											</td>
-
-											<td>
-											#qPropertySelect.AddressLine1#
-											</td>
-											<td>
-											#qPropertySelect.AddressLine2#
-											</td>
-											<td>
-											#qPropertySelect.City#
-											</td>
-											<td>
-											#qPropertySelect.stateName#
-											</td>
-											<td>
-											#qPropertySelect.ZipCode#
-											</td>
-											<td>
-												<a href="#cgi.script_name#?area=#url.area#&action=PropertyUpdate&PropertyID=#PropertyID#">Edit</a>
-											</td>
-										</tr>
-									</cfloop>
+										<cfloop query="qPropertySelect">
+											<tr>
+												<td>
+													#currentRow#
+												</td>
+												<td>
+													#qPropertySelect.AddressLine1#
+												</td>
+												<td>
+													#qPropertySelect.AddressLine2#
+												</td>
+												<td>
+													#qPropertySelect.City#
+												</td>
+												<td>
+													#qPropertySelect.stateName#
+												</td>
+												<td>
+												#qPropertySelect.ZipCode#
+												</td>
+												<td>
+													<a href="#cgi.script_name#?area=#url.area#&action=PropertyUpdate&PropertyID=#PropertyID#">Edit</a>
+												</td>
+											</tr>
+										</cfloop>
 									
 									</tbody>
 								</table>

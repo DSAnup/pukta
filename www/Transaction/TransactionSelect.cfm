@@ -1,15 +1,13 @@
 <cfquery datasource="#request.dsnameReader#" name="qTransactionSelect"> 
-
 	SELECT 
 		T.*, PS.PropertySectionName, E.ExpenseTypeName, R.ReceiptFileName, R.TransactionID AS RT, R.ReceiptFileName, R.ReceiptTitle, 
 	 CONCAT(P.AddressLine1,' - ', P.City ,' - ', (SELECT stateName FROM State WHERE StateID = P.StateID) ,' - ', P.ZipCode) AS Property
 	 
 	FROM TransactionDetails AS T 
-	LEFT JOIN Property AS P ON T.PropertyID = P.PropertyID
-	LEFT JOIN PropertySection AS PS ON T.PropertySectionID = PS.PropertySectionID	 
-	LEFT JOIN ExpenseType AS E ON T.ExpenseTypeID = E.ExpenseTypeID	
-	LEFT JOIN Receipt AS R ON T.TransactionID = R.TransactionID
-          
+		LEFT JOIN Property AS P ON T.PropertyID = P.PropertyID
+		LEFT JOIN PropertySection AS PS ON T.PropertySectionID = PS.PropertySectionID	 
+		LEFT JOIN ExpenseType AS E ON T.ExpenseTypeID = E.ExpenseTypeID	
+		LEFT JOIN Receipt AS R ON T.TransactionID = R.TransactionID       
 </cfquery>
 
 <div class="row">
@@ -57,28 +55,25 @@
 									</thead>
 						
 									<tbody>
-									<cfset index = 0 >
 									<cfloop query="qTransactionSelect" group="RT" >
-										<cfset index = index + 1 >
 										<tr>
 											<td>
-											#index#
-											</td>
-
-											<td>
-											#qTransactionSelect.Payee#
+												#currentRow#
 											</td>
 											<td>
-											#qTransactionSelect.Property#
+												#qTransactionSelect.Payee#
 											</td>
 											<td>
-											#qTransactionSelect.PropertySectionName#
+												#qTransactionSelect.Property#
 											</td>
 											<td>
-											#qTransactionSelect.ExpenseTypeName#
+												#qTransactionSelect.PropertySectionName#
 											</td>
 											<td>
-											#qTransactionSelect.Amount#
+												#qTransactionSelect.ExpenseTypeName#
+											</td>
+											<td>
+												#qTransactionSelect.Amount#
 											</td>
 											<td>
 												#DateFormat(qTransactionSelect.TransactionDate, "yyyy-mm-dd")#
@@ -139,7 +134,7 @@
 											<!-- /.modal -->
 											</td>
 											<td>
-											#qTransactionSelect.Note#
+												#qTransactionSelect.Note#
 											</td>
 											<td>
 												<a href="#cgi.script_name#?area=#url.area#&action=TransactionUpdate&TransactionID=#TransactionID#">Edit</a>

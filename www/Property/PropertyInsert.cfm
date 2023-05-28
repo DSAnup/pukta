@@ -1,6 +1,6 @@
 <cfquery datasource="#request.dsnameReader#" name="qStateSelect"> 
-    select *
-      from  State    
+    SELECT *
+    FROM  State    
 </cfquery>
 
 <div class="row">

@@ -1,11 +1,12 @@
 <cfquery datasource="#request.dsnameReader#" name="qPropertySelect"> 
-    select *
-      from Property where PropertyID = <cfqueryparam cfsqltype="cf_sql_integer" value="#PropertyID#">
-        
+    SELECT *
+    FROM Property 
+        WHERE PropertyID = <cfqueryparam cfsqltype="cf_sql_integer" value="#PropertyID#"> 
 </cfquery>
+
 <cfquery datasource="#request.dsnameReader#" name="qStateSelect"> 
-    select *
-      from  State    
+    SELECT *
+    FROM  State    
 </cfquery>
 
 <div class="row">
@@ -76,9 +77,6 @@
                                     </form>
                                 </div>
                             </div>
-                                  
-
-
                           </div>		
                       </cfoutput>
       

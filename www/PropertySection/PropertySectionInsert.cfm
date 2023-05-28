@@ -1,6 +1,6 @@
 <cfquery datasource="#request.dsnameReader#" name="qPropertyPhaseSelect"> 
     SELECT *
-      FROM  PropertyPhase    
+    FROM  PropertyPhase    
 </cfquery>
 <div class="row">
   <div class="col-12">

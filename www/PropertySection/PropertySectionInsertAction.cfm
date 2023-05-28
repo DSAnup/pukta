@@ -17,23 +17,20 @@
 	
     <!--- if a fail attempt, log the attempt, increment longin attempt and lock out if reached max try --->
     <cfquery datasource="#request.dsnameWriter#" >
-	INSERT INTO [dbo].[PropertySection]
-       ([PropertySectionName]
-	   ,[PropertyPhaseID]
-	   ,[DateCreated]
-	   ,[CreatedBy]
-	   ,[DateLastUpdated]
-	   ,[UpdatedBy])
- 	VALUES
-       (<cfqueryparam cfsqltype="cf_sql_varchar" value="#form.PropertySectionName#">
-       ,<cfqueryparam cfsqltype="cf_sql_integer" value="#form.PropertyPhaseID#">
-	   ,getDate()
-	   ,<cfqueryparam cfsqltype="cf_sql_integer" value="#application.SystemUserID#">
-	   ,getDate()
-	   ,<cfqueryparam cfsqltype="cf_sql_integer" value="#application.SystemUserID#">)	
-        
-		
-	
+		INSERT INTO [dbo].[PropertySection]
+			([PropertySectionName]
+			,[PropertyPhaseID]
+			,[DateCreated]
+			,[CreatedBy]
+			,[DateLastUpdated]
+			,[UpdatedBy])
+		VALUES
+			(<cfqueryparam cfsqltype="cf_sql_varchar" value="#form.PropertySectionName#">
+			,<cfqueryparam cfsqltype="cf_sql_integer" value="#form.PropertyPhaseID#">
+			,getDate()
+			,<cfqueryparam cfsqltype="cf_sql_integer" value="#application.SystemUserID#">
+			,getDate()
+			,<cfqueryparam cfsqltype="cf_sql_integer" value="#application.SystemUserID#">)
     </cfquery>
     
         

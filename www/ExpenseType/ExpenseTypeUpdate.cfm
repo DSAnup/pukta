@@ -1,7 +1,7 @@
 <cfquery datasource="#request.dsnameReader#" name="qExpenseTypeSelect"> 
-    select ExpenseTypeName
-      from ExpenseType where ExpenseTypeID = <cfqueryparam cfsqltype="cf_sql_integer" value="#ExpenseTypeID#">
-        
+    SELECT ExpenseTypeName
+    FROM ExpenseType 
+        WHERE ExpenseTypeID = <cfqueryparam cfsqltype="cf_sql_integer" value="#ExpenseTypeID#">       
 </cfquery>
 
 <div class="row">
@@ -45,7 +45,6 @@
                                     <button type="submit" class="btn btn-purple waves-effect waves-light">Update Expense Type</button>
                                 </div>
                             </form>
-
 
                           </div>		
                       </cfoutput>

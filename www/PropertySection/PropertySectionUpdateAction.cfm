@@ -19,16 +19,13 @@
         
     <!--- if a fail attempt, log the attempt, increment longin attempt and lock out if reached max try --->
     <cfquery datasource="#request.dsnameWriter#" >
-
-		
-	UPDATE [dbo].[PropertySection]
-	SET [PropertySectionName] = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.PropertySectionName#">
-		,[PropertyPhaseID] = <cfqueryparam cfsqltype="cf_sql_integer" value="#form.PropertyPhaseID#">
-		,[DateLastUpdated] = getDate()
-		,[UpdatedBy]  = <cfqueryparam cfsqltype="cf_sql_integer" value="#application.SystemUserID#">
- 	WHERE 
- 		PropertySectionID = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.PropertySectionID#">	
-	
+		UPDATE [dbo].[PropertySection]
+		SET [PropertySectionName] = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.PropertySectionName#">
+			,[PropertyPhaseID] = <cfqueryparam cfsqltype="cf_sql_integer" value="#form.PropertyPhaseID#">
+			,[DateLastUpdated] = getDate()
+			,[UpdatedBy]  = <cfqueryparam cfsqltype="cf_sql_integer" value="#application.SystemUserID#">
+		WHERE 
+			PropertySectionID = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.PropertySectionID#">	
     </cfquery>
     
         
