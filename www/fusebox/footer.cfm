@@ -168,19 +168,6 @@
 		
 	</cfif>
 
-    <!--- form reset --->
-	<script>
-        function resetform() {
-            var elements = document.getElementsByTagName("input");
-            for (var ii=0; ii < elements.length; ii++) {
-                    elements[ii].value = "";
-            }
-            $("option:selected").prop("selected", false)
-        }
-    </script>
-	
-		
-
     </body>
 
 </html>
