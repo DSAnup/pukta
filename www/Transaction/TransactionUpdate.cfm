@@ -98,7 +98,7 @@
                                         <div class="float-right">
                                             <input type="hidden" name="TransactionID" value="#url.TransactionID#" />
                                             <a href="index.cfm?area=Transaction&action=TransactionSelect" class="btn btn-danger waves-effect waves-light">Cancel</a>
-                                            <a class="btn btn-pink waves-effect waves-light" onclick="resetform()" href="##">Reset</a>
+                                            <button type="reset" class="btn btn-pink waves-effect waves-light">Reset</button>
                                             <button type="submit" class="btn btn-purple waves-effect waves-light">Update Transaction</button>
                                         </div>
                                     

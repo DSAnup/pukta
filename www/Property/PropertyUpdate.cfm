@@ -68,7 +68,7 @@
                                         <div class="float-right">
                                             <input type="hidden" name="PropertyID" value="#url.PropertyID#" />
                                             <a href="index.cfm?area=Property&action=PropertySelect" class="btn btn-danger waves-effect waves-light">Cancel</a>
-                                            <a class="btn btn-pink waves-effect waves-light" onclick="resetform()" href="##">Reset</a>
+                                            <button type="reset" class="btn btn-pink waves-effect waves-light">Reset</button>
                                             <button type="submit" class="btn btn-purple waves-effect waves-light">Update Property</button>
 
                                         </div>

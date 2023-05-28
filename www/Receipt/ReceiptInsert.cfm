@@ -59,7 +59,7 @@
                                         </div>
 
                                         <a href="index.cfm?area=Receipt&action=ReceiptSelect" class="btn btn-danger waves-effect waves-light">Cancel</a>
-                                        <a class="btn btn-pink waves-effect waves-light" onclick="resetform()" href="##">Reset</a>
+                                        <button type="reset" class="btn btn-pink waves-effect waves-light">Reset</button>
                                         <button type="submit" class="btn btn-purple waves-effect waves-light float-right">Add Receipt</button>
                                     
                                     </form>

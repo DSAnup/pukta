@@ -32,7 +32,7 @@
                                 </div>
                                 <div class="float-right">
                                     <a href="index.cfm?area=PropertySection&action=PropertySectionSelect" class="btn btn-danger waves-effect waves-light">Cancel</a>
-                                    <a class="btn btn-pink waves-effect waves-light" onclick="resetform()" href="##">Reset </a>
+                                    <button type="reset" class="btn btn-pink waves-effect waves-light">Reset</button>
                                     <button type="submit" class="btn btn-purple waves-effect waves-light">Add Property Section</button>
                                 </div>
                             </form>

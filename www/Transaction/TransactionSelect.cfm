@@ -112,11 +112,11 @@
 																<div class="col-md-12">
 																<form action="/partialIndex.cfm?area=Receipt&action=ReceiptInsertAction2" method="post" target="formpost" enctype="multipart/form-data">
 																	<div class="form-group">
-																		<label for="ReceiptTitle">Recipt Title</label>
+																		<label for="ReceiptTitle">Recipt Title *</label>
 																		<input type="text" name="ReceiptTitle" id="ReceiptTitle" class="form-control required" value="">
 																	</div>
 																	<div class="form-group">
-																		<label for="ReceiptFileName">Receipt File </label>
+																		<label for="ReceiptFileName">Receipt File *</label>
 																		<input type="file" name="ReceiptFileName" id="ReceiptFileName" class="form-control required">
 																	</div>
 																	
@@ -127,7 +127,7 @@
 																	<input type="hidden" name="TransactionID" value="#qTransactionSelect.TransactionID#" />
 																	<div class="float-right">
 																		<button type="button" class="btn btn-danger waves-effect" data-dismiss="modal">Cancel</button>
-																		<a class="btn btn-pink waves-effect waves-light" onclick="resetform()" href="##">Reset</a>
+																		<button type="reset" class="btn btn-pink waves-effect waves-light">Reset</button>
 																		<button type="submit" class="btn btn-purple waves-effect waves-light ">Add Receipt</button>
 																	</div>
 																</form>
