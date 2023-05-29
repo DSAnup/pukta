@@ -82,15 +82,19 @@
 												<cfif qTransactionSelect.ReceiptFileName neq ''>
 													<cfloop>
 														<a href="#request.publicSiteDomain#/assets/uploads/#qTransactionSelect.ReceiptFileName#" target="_blank">
-															<cfif listLast(qTransactionSelect.ReceiptFileName, '.') eq 'jpg'>
+															<cfif listLast(qTransactionSelect.ReceiptFileName, '.') eq 'jpg'  or listLast(qTransactionSelect.ReceiptFileName, '.') eq 'png' or listLast(qTransactionSelect.ReceiptFileName, '.') eq 'jpeg'>
 																<i class="mdi mdi-file-image-outline md2x"  data-toggle="tooltip" data-placement="right" title="#qTransactionSelect.ReceiptTitle#"></i>
+															<cfelseif listLast(qTransactionSelect.ReceiptFileName, '.') eq 'doc' or listLast(qTransactionSelect.ReceiptFileName, '.') eq 'docx'>
+																<i class="mdi mdi-file-document-box-outline md2x"  data-toggle="tooltip" data-placement="right" title="#qTransactionSelect.ReceiptTitle#"></i>
+															<cfelseif listLast(qTransactionSelect.ReceiptFileName, '.') eq 'xls' or listLast(qTransactionSelect.ReceiptFileName, '.') eq 'xlsx' or listLast(qTransactionSelect.ReceiptFileName, '.') eq 'csv'>
+																<i class="mdi mdi-file-excel-box-outline md2x"  data-toggle="tooltip" data-placement="right" title="#qTransactionSelect.ReceiptTitle#"></i>
 															<cfelse>
 																<i class="mdi mdi-file-pdf-box-outline md2x"  data-toggle="tooltip" data-placement="right" title="#qTransactionSelect.ReceiptTitle#"></i>
 															</cfif>
 														</a>
 													</cfloop>
 												</cfif>
-											<a data-toggle="modal" data-target="##con-close-modal_#qTransactionSelect.TransactionID#" href="##"> <i class="mdi mdi-file-plus md2x" data-toggle="tooltip" data-placement="right" title="Add Reciept"></i> </a>
+											<a data-toggle="modal" data-target="##con-close-modal_#qTransactionSelect.TransactionID#" href="##"> <i class="mdi mdi-file-plus-outline md2x" data-toggle="tooltip" data-placement="right" title="Add Reciept"></i> </a>
 											
 											<!--- Modal  --->
 											<div id="con-close-modal_#qTransactionSelect.TransactionID#" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
@@ -105,16 +109,17 @@
 														<div class="modal-body">
 															<div class="row">
 																<div class="col-md-12">
-																<form action="/partialIndex.cfm?area=Receipt&action=ReceiptInsertAction2" method="post" target="formpost" enctype="multipart/form-data">
+																<form action="/partialIndex.cfm?area=Receipt&action=ReceiptInsertAction2" method="post" target="formpost" enctype="multipart/form-data" id="modal-form">
 																	<div class="form-group">
 																		<label for="ReceiptTitle">Recipt Title *</label>
 																		<input type="text" name="ReceiptTitle" id="ReceiptTitle" class="form-control required" value="">
 																	</div>
+																	<span id="error-title" style="display:none; color:red">Please enter Recipt Title *</span>
 																	<div class="form-group">
 																		<label for="ReceiptFileName">Receipt File *</label>
-																		<input type="file" name="ReceiptFileName" id="ReceiptFileName" class="form-control required">
+																		<input type="file" name="ReceiptFileName" id="ReceiptFileName" class="form-control required" accept=".pdf, .png, .jpg, .jpeg, .doc, .docx, .xls, .xlsx, .csv">
 																	</div>
-																	
+																	<span id="error-filename" style="display:none; color:red">Please choose a Recipt File *</span>
 																	<div class="form-group">
 																		<label for="Note">Note</label>
 																		<textarea class="form-control" rows="6" id="example-textarea-input" name="Note"></textarea>
@@ -158,3 +163,18 @@
 	</div>
 	<!-- end col -->
 </div>		
+<script>
+	$("#modal-form").on("submit", function (e) {
+		var ReceiptTitle = document.getElementById('ReceiptTitle');
+		var ReceiptFileName = document.getElementById('ReceiptFileName');
+		  if (ReceiptTitle.value.length == 0) {
+			document.getElementById("error-title").style.display = "block";
+			event.preventDefault(); 
+		  }
+		  else if (ReceiptFileName.value.length == 0) {
+			document.getElementById("error-filename").style.display = "block";
+			event.preventDefault(); 
+		  }
+	})
+  </script>
+  
