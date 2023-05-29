@@ -7,3 +7,6 @@
 *.ntvs*
 *.njsproj
 *.sln
+
+# Folder restriction
+www/assets/uploads/
