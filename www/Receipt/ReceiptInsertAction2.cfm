@@ -8,10 +8,15 @@
 	<cfif trim(form.TransactionID) eq "">
 		<cfset errorMessage = errorMessage & "Transaction  must be provided.<br>">	
 	</cfif>
-	<cfset local.fileNames = [] >
+	<cfset ReceiptPath = "#request.imagesUploadPath#\Receipt">
+
+	<cfif not directoryExists(ReceiptPath)>
+		<cfdirectory action="create" directory="#ReceiptPath#">
+	</cfif>
+
 	<cfif isDefined("form.RECEIPTFILENAME")>
 		<cffile action="upload"
-			destination="#request.imagesUploadPath#"
+			destination="#ReceiptPath#"
 			nameconflict="makeunique"
 			>
 	</cfif>

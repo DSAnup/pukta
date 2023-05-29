@@ -55,10 +55,12 @@
 									</thead>
 						
 									<tbody>
-									<cfloop query="qTransactionSelect" group="RT" >
+									<cfset index = 0>
+									<cfloop query="qTransactionSelect" group="TransactionID" >
+										<cfset index = index + 1>
 										<tr>
 											<td>
-												#currentRow#
+												#index#
 											</td>
 											<td>
 												#qTransactionSelect.Payee#
@@ -81,7 +83,7 @@
 											<td>
 												<cfif qTransactionSelect.ReceiptFileName neq ''>
 													<cfloop>
-														<a href="#request.publicSiteDomain#/assets/uploads/#qTransactionSelect.ReceiptFileName#" target="_blank">
+														<a href="#request.publicSiteDomain#/assets/uploads/Receipt/#qTransactionSelect.ReceiptFileName#" target="_blank">
 															<cfif listLast(qTransactionSelect.ReceiptFileName, '.') eq 'jpg'  or listLast(qTransactionSelect.ReceiptFileName, '.') eq 'png' or listLast(qTransactionSelect.ReceiptFileName, '.') eq 'jpeg'>
 																<i class="mdi mdi-file-image-outline md2x"  data-toggle="tooltip" data-placement="right" title="#qTransactionSelect.ReceiptTitle#"></i>
 															<cfelseif listLast(qTransactionSelect.ReceiptFileName, '.') eq 'doc' or listLast(qTransactionSelect.ReceiptFileName, '.') eq 'docx'>
