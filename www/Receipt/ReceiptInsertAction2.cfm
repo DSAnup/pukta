@@ -8,20 +8,25 @@
 	<cfif trim(form.TransactionID) eq "">
 		<cfset errorMessage = errorMessage & "Transaction  must be provided.<br>">	
 	</cfif>
-	<cfset ReceiptPath = "#request.imagesUploadPath#\Receipt">
-
-	<cfif not directoryExists(ReceiptPath)>
-		<cfdirectory action="create" directory="#ReceiptPath#">
-	</cfif>
-
-	<cfif isDefined("form.RECEIPTFILENAME")>
-		<cffile action="upload"
-			destination="#ReceiptPath#"
-			nameconflict="makeunique"
-			>
+	<cfif trim(form.RECEIPTFILENAME) eq "">
+		<cfset errorMessage = errorMessage & "Choose an file  must be provided.<br>">
+	<cfelse>
+		<cfset ReceiptPath = "#request.imagesUploadPath#\Receipt">
+	
+		<cfif not directoryExists(ReceiptPath)>
+			<cfdirectory action="create" directory="#ReceiptPath#">
+		</cfif>
+	
+		<cfif isDefined("form.RECEIPTFILENAME")>
+			<cffile action="upload"
+				destination="#ReceiptPath#"
+				nameconflict="makeunique"
+				>
+		</cfif>
 	</cfif>
 
     <cfif errorMessage gt "">
+		<cfdump var="#errorMessage#">
 		<cfset showErrorMessage (Message = errorMessage)>	
 		<cfabort>
 	</cfif>  
