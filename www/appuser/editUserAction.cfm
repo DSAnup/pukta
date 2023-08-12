@@ -12,7 +12,7 @@
 		<cfset errorMessage = errorMessage & "A valid email must be provided.<br>">	
 	</cfif>
 	
-	<cfif trim(form.Password) eq "">
+	<cfif trim(form.PasswordHash) eq "">
 		<cfset errorMessage = errorMessage & "Password must be provided.<br>">	
 	</cfif>
 
@@ -33,8 +33,7 @@
 		   SET [FirstName] = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.FirstName#">
 			  ,[LastName] = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.LastName#">
 			  ,[Email] = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.Email#">
-			  ,[isAdministrator] = 0
-			  ,[isActive] = 0
+			  ,[PasswordHash] = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.PasswordHash#">
 		 WHERE 
 			AppUserID = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.AppUserID#">	   
         

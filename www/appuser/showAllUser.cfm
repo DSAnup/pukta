@@ -25,6 +25,7 @@
 		<div class="card">
 			<div class="card-header">
 				<h3 class="card-title">Users table</h3>
+				<a href="index.cfm?area=appuser&action=addNewUser" style="width: auto;" class="btn btn-success custom-btn floatright">Add User</a>
 			</div>
 			<div class="card-body">
 

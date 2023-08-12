@@ -39,7 +39,7 @@
         
         
     <!--- if a fail attempt, log the attempt, increment longin attempt and lock out if reached max try --->
-    <cfquery datasource="#request.dsnameReader#" >
+    <cfquery datasource="#request.dsnameWriter#" >
         
 
 	INSERT INTO [dbo].[AppUser]
@@ -52,14 +52,16 @@
 		   ,[DateLastUpdated]
 		   ,[UpdatedBy])
      VALUES
-           (<cfqueryparam cfsqltype="cf_sql_varchar" value="#form.FirstName#">
+           (
+		   <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.FirstName#">
            ,<cfqueryparam cfsqltype="cf_sql_varchar" value="#form.LastName#">
            ,<cfqueryparam cfsqltype="cf_sql_varchar" value="#form.Email#">
            ,<cfqueryparam cfsqltype="cf_sql_varchar" value="#form.PasswordHash#">
 		   ,getDate()
-		   ,#application.SystemUserID#
+		   ,<cfqueryparam cfsqltype="cf_sql_integer" value="#application.SystemUserID#">
 		   ,getDate()
-		   ,#application.SystemUserID#)
+		   ,<cfqueryparam cfsqltype="cf_sql_integer" value="#application.SystemUserID#">
+		   )
         
     </cfquery>
 

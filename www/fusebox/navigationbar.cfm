@@ -18,8 +18,7 @@
 							<a href="##">
 							<i class="mdi mdi-webhook"></i> WebTop </a>
 							<ul class="submenu">
-								<li><a href="index.cfm?area=WebTop&action=CountryManager"> <i class="mdi mdi-globe-model"></i> Country Manager</a></li>
-								<li><a href="index.cfm?area=WebTop&action=UsStateManager"> <i class="mdi mdi-map-marker-check"></i> US State Manager</a></li>
+								<li><a href="index.cfm?area=appuser&action=showAllUser"> <i class="mdi mdi-account"></i> User Manager</a></li>
 								<hr class="customsolid">
 								<li><a href="index.cfm?area=ExpenseType&action=ExpenseTypeSelect"> <i class="mdi mdi-equalizer"></i> Expense Type Manager</a></li>
 								<hr class="customsolid">
@@ -35,11 +34,8 @@
 							</ul>
 						</li>
 						<li class="has-submenu">
-							<a href="##">
+							<a href="index.cfm?area=Transaction&action=TransactionSelect">
 							<i class="mdi mdi-equalizer"></i> Expense </a>
-							<ul class="submenu">
-								<li><a href="index.cfm?area=Transaction&action=TransactionSelect"> <i class="mdi mdi-bottle-tonic-outline"></i> Transaction Manager</a></li>
-							</ul>
 						</li>
 
                 <cfelse>

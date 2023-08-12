@@ -56,7 +56,7 @@
 		<cfset onApplicationStart()> 
 		
 		<!---include the user defined functions --->		
-		<cfinclude template="fusebox/udf.cfm" >		
+		<cfinclude template="fusebox/udf.cfm" >	
 		<cfreturn true>
 	</cffunction>
 	

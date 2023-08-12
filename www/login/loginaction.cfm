@@ -18,17 +18,20 @@
 <!--- lets get the users that matches the email/password --->
 <cfquery datasource="#request.dsnameReader#" name="qUserSelect">	
 	select *
-		from Appuser		
-		where Email = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.email#">	
+		from AppUser		
+		where Email = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.email#">
+		and PasswordHash = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.PasswordHash#">
 </cfquery>
-
 <!--- check to see if the user exists --->
 <cfif qUserSelect.RecordCount eq 0>
 	<cfset showErrorMessage (Message = "User does not exist with the details your provided.  Please try again.")>
 	<cfabort>		
 <cfelseif  qUserSelect.RecordCount gt 1>	
 	<cfset showErrorMessage (Message = "Multiple User with same details you provided.  Please contact your administrator.")>	
-	<cfabort>						
+	<cfabort>
+<cfelseif qUserSelect.PasswordHash neq trim(form.PasswordHash)>
+	<cfset showErrorMessage (Message = "Password not matched. Please try with correct password")>	
+	<cfabort>
 </cfif>
  
 
@@ -37,7 +40,6 @@
  <cfloop list="#qUserSelect.columnList#" index="col">
  	<cfset session.Profile[col] = qUserSelect[col]>
  </cfloop>
- 
  
  <cfif isdefined("form.rememberme")>
  	 <cfcookie name = "appUserID" value = "#qUserSelect.AppUserID#" expires = "01/01/2099"> 

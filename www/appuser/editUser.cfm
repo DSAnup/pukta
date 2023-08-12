@@ -1,5 +1,5 @@
 <cfquery datasource="#request.dsnameReader#" name="qSelecUser"> 
-  select FirstName, LastName, Email, Password
+  select FirstName, LastName, Email, PasswordHash
 	from Appuser where AppUserID = #url.AppUserID#      
 	  
 </cfquery>
@@ -67,7 +67,7 @@
 							<div class="form-group row">
 								<label class="col-lg-2 control-label" for="Password">Password*</label>
 								<div class="col-lg-10">
-									<input id="Password" name="Password" type="password" class="required form-control" value="#qSelecUser.Password#">
+									<input id="Password" name="passwordHash" type="password" class="required form-control" value="#qSelecUser.passwordHash#">
 								</div>
 							</div>
 							<div class="form-group row custom-form-group">
