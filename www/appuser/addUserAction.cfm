@@ -47,16 +47,19 @@
            ,[LastName]
            ,[Email]
            ,[PasswordHash]     
+           ,[AppUserAccessLevelID]     
 		   ,[DateCreated]
 		   ,[CreatedBy]
 		   ,[DateLastUpdated]
-		   ,[UpdatedBy])
+		   ,[UpdatedBy]
+		   )
      VALUES
            (
 		   <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.FirstName#">
            ,<cfqueryparam cfsqltype="cf_sql_varchar" value="#form.LastName#">
            ,<cfqueryparam cfsqltype="cf_sql_varchar" value="#form.Email#">
            ,<cfqueryparam cfsqltype="cf_sql_varchar" value="#form.PasswordHash#">
+		   ,<cfqueryparam cfsqltype="cf_sql_integer" value="#form.AppUserAccessLevelID#">
 		   ,getDate()
 		   ,<cfqueryparam cfsqltype="cf_sql_integer" value="#application.SystemUserID#">
 		   ,getDate()

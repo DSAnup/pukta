@@ -1,14 +1,13 @@
 <cfquery datasource="#request.dsnameReader#" name="qSelecUser"> 
-  select FirstName, LastName, Email, PasswordHash
-	from Appuser where AppUserID = #url.AppUserID#      
+  select FirstName, LastName, Email, PasswordHash, AppUserAccessLevelID
+	from Appuser where AppUserID = <cfqueryparam cfsqltype="cf_sql_integer" value=" #url.AppUserID#">      
 	  
 </cfquery>
-	
- <!--- <cfquery datasource="#request.dsnameReader#" name="qCategorySelectByID"> 
-      select BlogCategoryName
-        from BlogCategory  where BlogCategoryID =  #url.BlogCategoryID#  
-          
-    </cfquery>--->
+
+<cfquery datasource="#request.dsnameReader#" name="qAppUserAccessLevelSelect"> 
+    SELECT *
+    FROM  AppUserAccessLevel    
+</cfquery>
     
 <div class="row">
 	<div class="col-12">
@@ -64,11 +63,21 @@
 									<input id="Email" name="Email" type="text" class="required form-control" value="#qSelecUser.Email#" >
 								</div>
 							</div>
+						</div>
+						<div class="col-md-6">
 							<div class="form-group row">
 								<label class="col-lg-2 control-label" for="Password">Password*</label>
 								<div class="col-lg-10">
 									<input id="Password" name="passwordHash" type="password" class="required form-control" value="#qSelecUser.passwordHash#">
 								</div>
+							</div>
+							<div class="form-group">
+								<label for="AppUserAccessLevelID">Access Level *</label>
+								<select class="form-control" name="AppUserAccessLevelID">
+									<cfloop query="qAppUserAccessLevelSelect">
+										<option value="#qAppUserAccessLevelSelect.AppUserAccessLevelID#" <cfif qAppUserAccessLevelSelect.AppUserAccessLevelID eq qSelecUser.AppUserAccessLevelID>selected</cfif>>#qAppUserAccessLevelSelect.AccessLevelName#</option>
+									</cfloop>
+								</select>
 							</div>
 							<div class="form-group row custom-form-group">
 								<label class="col-lg-12 control-label">(*) Mandatory</label>
@@ -77,6 +86,7 @@
 								<input type="hidden" name="AppUserID" value="#url.AppUserID#" />
 								<input type="submit" name="updateuser" value="Update" class="btn btn-success custom-btn">
 							</div>
+						</div>
 
 						</form>
 						</cfoutput>

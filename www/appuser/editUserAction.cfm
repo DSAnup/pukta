@@ -30,11 +30,14 @@
         
 		   
 		UPDATE [dbo].[AppUser]
-		   SET [FirstName] = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.FirstName#">
-			  ,[LastName] = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.LastName#">
-			  ,[Email] = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.Email#">
-			  ,[PasswordHash] = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.PasswordHash#">
-		 WHERE 
+		SET [FirstName] = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.FirstName#">
+			,[LastName] = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.LastName#">
+			,[Email] = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.Email#">
+			,[PasswordHash] = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.PasswordHash#">
+			,[AppUserAccessLevelID] = <cfqueryparam cfsqltype="cf_sql_integer" value="#form.AppUserAccessLevelID#">
+			,[DateLastUpdated] = getDate()
+			,[UpdatedBy]  = <cfqueryparam cfsqltype="cf_sql_integer" value="#application.SystemUserID#">
+		WHERE 
 			AppUserID = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.AppUserID#">	   
         
     </cfquery>
