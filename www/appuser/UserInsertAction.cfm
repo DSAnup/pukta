@@ -1,4 +1,4 @@
-	<cfdump var="#form#" />
+
 	<cfset errorMessage = "">
 	
 	<!--- make sure all required inputs are provided --->
@@ -48,6 +48,7 @@
            ,[Email]
            ,[PasswordHash]     
            ,[AppUserAccessLevelID]     
+           ,[PropertyID]     
 		   ,[DateCreated]
 		   ,[CreatedBy]
 		   ,[DateLastUpdated]
@@ -60,6 +61,7 @@
            ,<cfqueryparam cfsqltype="cf_sql_varchar" value="#form.Email#">
            ,<cfqueryparam cfsqltype="cf_sql_varchar" value="#form.PasswordHash#">
 		   ,<cfqueryparam cfsqltype="cf_sql_integer" value="#form.AppUserAccessLevelID#">
+           ,<cfqueryparam cfsqltype="cf_sql_varchar" value="#form.PropertyID#">
 		   ,getDate()
 		   ,<cfqueryparam cfsqltype="cf_sql_integer" value="#application.SystemUserID#">
 		   ,getDate()
@@ -70,7 +72,7 @@
 
       
 <cfset session.OnLoadMessage = "success('User Successfully Added...')">    
-<cfset relocate (area = "appuser", action = "showAllUser")>
+<cfset relocate (area = "appuser", action = "UserSelect")>
      
      
      

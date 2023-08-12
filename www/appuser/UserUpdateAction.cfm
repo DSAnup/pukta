@@ -35,6 +35,7 @@
 			,[Email] = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.Email#">
 			,[PasswordHash] = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.PasswordHash#">
 			,[AppUserAccessLevelID] = <cfqueryparam cfsqltype="cf_sql_integer" value="#form.AppUserAccessLevelID#">
+			,[PropertyID] = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.PropertyID#">
 			,[DateLastUpdated] = getDate()
 			,[UpdatedBy]  = <cfqueryparam cfsqltype="cf_sql_integer" value="#application.SystemUserID#">
 		WHERE 
@@ -44,7 +45,7 @@
 
       
 <cfset session.OnLoadMessage = "success('User Successfully Updated...')">    
-<cfset relocate (area = "appuser", action = "showAllUser")>
+<cfset relocate (area = "appuser", action = "UserSelect")>
      
      
      

@@ -22,7 +22,7 @@
 
 				<div class="row">
 					<div class="col-md-6">
-						<form method="post" action="partialIndex.cfm?area=appuser&action=updatePasswordAction" target="formpost" >
+						<form method="post" action="partialIndex.cfm?area=appuser&action=PasswordUpdateAction" target="formpost" >
 									<!---success alert --->
 									<div class="alert alert-success alertHidden"  id="successDiv">										
 										<span id="successMessage"></span>

@@ -18,7 +18,7 @@
 							<a href="##">
 							<i class="mdi mdi-webhook"></i> WebTop </a>
 							<ul class="submenu">
-								<li><a href="index.cfm?area=appuser&action=showAllUser"> <i class="mdi mdi-account"></i> User Manager</a></li>
+								<li><a href="index.cfm?area=appuser&action=UserSelect"> <i class="mdi mdi-account"></i> User Manager</a></li>
 								<hr class="customsolid">
 								<li><a href="index.cfm?area=ExpenseType&action=ExpenseTypeSelect"> <i class="mdi mdi-equalizer"></i> Expense Type Manager</a></li>
 								<hr class="customsolid">

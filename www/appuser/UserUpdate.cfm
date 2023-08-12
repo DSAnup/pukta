@@ -1,7 +1,12 @@
 <cfquery datasource="#request.dsnameReader#" name="qSelecUser"> 
-  select FirstName, LastName, Email, PasswordHash, AppUserAccessLevelID
-	from Appuser where AppUserID = <cfqueryparam cfsqltype="cf_sql_integer" value=" #url.AppUserID#">      
-	  
+  select FirstName, LastName, Email, PasswordHash, AppUserAccessLevelID, PropertyID
+	from Appuser where AppUserID = <cfqueryparam cfsqltype="cf_sql_integer" value=" #url.AppUserID#">        
+</cfquery>
+
+<cfquery datasource="#request.dsnameReader#" name="qPropertySelect"> 
+	SELECT P.PropertyID, S.stateName, CONCAT(P.AddressLine1, '-', S.stateName) as PropertyState
+    FROM  Property  AS P
+		LEFT JOIN State AS S ON P.StateID = S.StateID        
 </cfquery>
 
 <cfquery datasource="#request.dsnameReader#" name="qAppUserAccessLevelSelect"> 
@@ -12,11 +17,11 @@
 <div class="row">
 	<div class="col-12">
 		<div class="page-title-box">
-			<h4 class="page-title">Add New User</h4>
+			<h4 class="page-title">Edit User</h4>
 			<div class="page-title-right">
 				<ol class="breadcrumb p-0 m-0">
-					<li class="breadcrumb-item"><a href="#">Home</a></li>
-					<li class="breadcrumb-item active">Add New User</li>
+					<li class="breadcrumb-item"><a href="index.cfm?area=dashboard&action=index">Home</a></li>
+					<li class="breadcrumb-item active">Edit User</li>
 				</ol>
 			</div>
 			<div class="clearfix"></div>
@@ -27,14 +32,14 @@
 	<div class="col-md-12">
 		<div class="card">
 			<div class="card-header">
-				<h3 class="card-title">Add New Users</h3>
+				<h3 class="card-title">Edit Users</h3>
 			</div>
 			<div class="card-body">
 
 				<div class="row">
 					<div class="col-md-6">
 					<cfoutput>
-						<form method="post" action="partialIndex.cfm?area=appuser&action=editUserAction" target="formpost" >
+						<form method="post" action="partialIndex.cfm?area=appuser&action=UserUpdateAction" target="formpost" >
 								<!---success alert --->
 								<div class="alert alert-success alertHidden"  id="successDiv">										
 									<span id="successMessage"></span>
@@ -78,6 +83,14 @@
 										<option value="#qAppUserAccessLevelSelect.AppUserAccessLevelID#" <cfif qAppUserAccessLevelSelect.AppUserAccessLevelID eq qSelecUser.AppUserAccessLevelID>selected</cfif>>#qAppUserAccessLevelSelect.AccessLevelName#</option>
 									</cfloop>
 								</select>
+							</div>
+							<div class="form-group" style="margin-left:20px;">
+								<cfloop query="qPropertySelect">
+									<input class="form-check-input"  <cfif listFind(qSelecUser.PropertyID, qPropertySelect.PropertyID)>checked</cfif> type="checkbox" value="#qPropertySelect.PropertyID#" id="#qPropertySelect.PropertyID#" name="PropertyID">
+									<label class="form-check-label" for="#qPropertySelect.PropertyID#" style="padding-right:25px;" >
+										#qPropertySelect.PropertyState#
+									</label>
+								</cfloop>
 							</div>
 							<div class="form-group row custom-form-group">
 								<label class="col-lg-12 control-label">(*) Mandatory</label>

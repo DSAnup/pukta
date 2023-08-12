@@ -40,7 +40,7 @@
                                         
             
                                         <!-- item-->
-                                        <a  href="index.cfm?area=appuser&action=updatePassword" class="dropdown-item notify-item">
+                                        <a  href="index.cfm?area=appuser&action=PasswordUpdate" class="dropdown-item notify-item">
                                             <i class="mdi mdi-face-profile"></i>
                                             <span>Change Password</span>
                                         </a>
