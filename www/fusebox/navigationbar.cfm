@@ -7,7 +7,7 @@
             <ul class="navigation-menu">
             	
             	
-            	<cfif session.Profile.isLoggedIn eq true>
+            	<cfif session.Profile.isLoggedIn eq true and session.Profile.AppUserAccessLevelID eq 1>
 	
 		                <li class="has-submenu">
 	                        <a href="index.cfm?area=dashboard&action=index">
@@ -37,6 +37,15 @@
 							<a href="index.cfm?area=Transaction&action=TransactionSelect">
 							<i class="mdi mdi-equalizer"></i> Expense </a>
 						</li>
+				<cfelseif session.Profile.isLoggedIn eq true and session.Profile.AppUserAccessLevelID eq 3>
+					<li class="has-submenu">
+						<a href="index.cfm?area=dashboard&action=index">
+							<i class="mdi mdi-book"></i> Dashboard </a>
+					</li>
+					<li class="has-submenu">
+						<a href="index.cfm?area=Transaction&action=TransactionSelect">
+						<i class="mdi mdi-equalizer"></i> Expense </a>
+					</li>
 
                 <cfelse>
 
