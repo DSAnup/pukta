@@ -1,9 +1,15 @@
-
-<cfquery datasource="#request.dsnameReader#" name="qPropertySelect"> 
-    SELECT CONCAT(P.AddressLine1,' - ', P.City ,' - ', (SELECT stateName FROM State WHERE StateID = P.StateID) ,' - ', P.ZipCode) AS Property, P.PropertyID
-    FROM  Property AS P
-</cfquery>
-
+<cfif session.Profile.AppUserAccessLevelID eq 3>
+    <cfquery datasource="#request.dsnameReader#" name="qPropertySelect"> 
+        SELECT CONCAT(P.AddressLine1,' - ', P.City ,' - ', (SELECT stateName FROM State WHERE StateID = P.StateID) ,' - ', P.ZipCode) AS Property, P.PropertyID
+        FROM  Property AS P
+        WHERE PropertyID IN (#session.Profile.PropertyID#)
+    </cfquery>
+<cfelse>
+    <cfquery datasource="#request.dsnameReader#" name="qPropertySelect"> 
+        SELECT CONCAT(P.AddressLine1,' - ', P.City ,' - ', (SELECT stateName FROM State WHERE StateID = P.StateID) ,' - ', P.ZipCode) AS Property, P.PropertyID
+        FROM  Property AS P
+    </cfquery>
+</cfif>
 <div class="row">
 	<div class="col-12">
 		<div class="page-title-box">
@@ -84,9 +90,12 @@
                                             <div class="form-group row">
                                                 <div class="col-lg-12 d-flex justify-content-end">
                                                     <button type="submit" class="btn btn-purple waves-effect waves-light" style="min-width: 150px;">Search</button>
-                                                    <a href="index.cfm?area=Transaction&action=TransactionInsert" class="btn btn-success ml-2" style="width: auto;" >
-                                                        <i class="fa fa-plus-circle"></i> Add Transaction
-                                                    </a>
+                                                    
+                                                    <cfif session.Profile.AppUserAccessLevelID neq 3>
+                                                        <a href="index.cfm?area=Transaction&action=TransactionInsert" class="btn btn-success ml-2" style="width: auto;" >
+                                                            <i class="fa fa-plus-circle"></i> Add Transaction
+                                                        </a>
+                                                    </cfif>
                                                 </div>
                                             </div>
                                         </div>
