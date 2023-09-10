@@ -62,7 +62,11 @@
                                             </div>
                                         </div>
 
-                                        <cfset lastmonth= #dateadd("M", -3, now())#>
+                                        <cfif session.Profile.AppUserAccessLevelID eq 3>
+                                            <cfset lastmonth= #dateadd("M", -12, now())#>
+                                        <cfelse>
+                                            <cfset lastmonth= #dateadd("M", -3, now())#>
+                                        </cfif>
 
                                         <!--- Date From --->
                                         <div class="col-md-3">

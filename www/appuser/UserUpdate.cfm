@@ -4,9 +4,8 @@
 </cfquery>
 
 <cfquery datasource="#request.dsnameReader#" name="qPropertySelect"> 
-	SELECT P.PropertyID, S.stateName, CONCAT(P.AddressLine1, '-', S.stateName) as PropertyState
-    FROM  Property  AS P
-		LEFT JOIN State AS S ON P.StateID = S.StateID        
+	SELECT P.PropertyID, p.AddressLine1, p.City
+	    FROM  Property  AS P		       
 </cfquery>
 
 <cfquery datasource="#request.dsnameReader#" name="qAppUserAccessLevelSelect"> 
@@ -85,10 +84,11 @@
 								</select>
 							</div>
 							<div class="form-group" style="margin-left:20px;">
+								<input type="hidden" name="PropertyID">
 								<cfloop query="qPropertySelect">
-									<input class="form-check-input"  <cfif listFind(qSelecUser.PropertyID, qPropertySelect.PropertyID)>checked</cfif> type="checkbox" value="#qPropertySelect.PropertyID#" id="#qPropertySelect.PropertyID#" name="PropertyID">
+									<input class="form-check-input"  <cfif listFind(qSelecUser.PropertyID, qPropertySelect.PropertyID)>checked</cfif> type="checkbox" value="#qPropertySelect.PropertyID#" id="PropertyID" name="PropertyID">
 									<label class="form-check-label" for="#qPropertySelect.PropertyID#" style="padding-right:25px;" >
-										#qPropertySelect.PropertyState#
+										#qPropertySelect.AddressLine1#, #qPropertySelect.City#
 									</label>
 								</cfloop>
 							</div>
