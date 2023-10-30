@@ -88,7 +88,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="Amount">Amount</label>
-                                            <input type="number" name="Amount" id="Amount" class="form-control required" value="#qTransactionSelect.Amount#">
+                                            <input type="text" name="Amount" id="Amount" class="form-control required" value="#qTransactionSelect.Amount#">
                                         </div>
                                         <div class="form-group">
                                             <label for="Note">Note</label>

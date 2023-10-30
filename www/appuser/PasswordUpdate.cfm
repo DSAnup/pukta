@@ -4,7 +4,7 @@
 			<h4 class="page-title">Update Password</h4>
 			<div class="page-title-right">
 				<ol class="breadcrumb p-0 m-0">
-					<li class="breadcrumb-item"><a href="#">Home</a></li>
+					<li class="breadcrumb-item"><a href="index.cfm?area=dashboard&action=index">Home</a></li>
 					<li class="breadcrumb-item active">Update Password</li>
 				</ol>
 			</div>

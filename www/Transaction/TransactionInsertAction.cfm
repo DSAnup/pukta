@@ -14,7 +14,7 @@
 	<cfif trim(form.ExpenseTypeID) eq "">
 		<cfset errorMessage = errorMessage & "Expense Type  must be provided.<br>">	
 	</cfif>
-	<cfif trim(form.Amount) eq "">
+	<cfif trim(form.Amount) eq "" and isNumeric(form.Amount)>
 		<cfset errorMessage = errorMessage & "Amount  must be provided.<br>">	
 	</cfif>
 	<cfif trim(form.TransactionDate) eq "">

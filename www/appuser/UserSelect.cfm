@@ -12,7 +12,7 @@
 			<h4 class="page-title">Show All users</h4>
 			<div class="page-title-right">
 				<ol class="breadcrumb p-0 m-0">
-					<li class="breadcrumb-item"><a href="#">Home</a></li>
+					<li class="breadcrumb-item"><a href="index.cfm?area=dashboard&action=index">Home</a></li>
 					<li class="breadcrumb-item active">Show All Users</li>
 				</ol>
 			</div>

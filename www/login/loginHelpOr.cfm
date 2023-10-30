@@ -12,25 +12,25 @@
 					</div>
 				</div>	
 
-                <div class="row justify-content-center" style="opacity:0.5">
+                <div class="row justify-content-center">
+				
                     <div class="col-md-6">
                         <div class="card mt-4 reset-usename-pass">
 <!---                            <div class="card-header bg-img p-5 position-relative">
                                 <div class="bg-overlay"></div>
                                 <h4 class="text-white text-center mb-0">Sign In<br/> <br>Time Tracking System</h4>
                             </div>--->
-							
 							<h4 class="mb-0">Forget Password?</h4>
 
                             <div class="card-body p-4 mt-2">
                                 <form method="post" action="partialIndex.cfm?area=login&action=ResetPasswordAction" target="formpost" >
 		
                                     <div class="form-group mb-3">
-                                        <input class="form-control" type="email" name="email"  placeholder="Email" value="" disabled>
+                                        <input class="form-control" type="email" name="email"  placeholder="Email" value="">
                                     </div>
 
                                     <div class="form-group">
-                                        <button class="btn btn-primary waves-effect width-md waves-light" type="submit" disabled> Reset Password</button>
+                                        <button class="btn btn-primary waves-effect width-md waves-light" type="submit"> Reset Password</button>
                                     </div>
 
 
@@ -54,11 +54,11 @@
 			
 
                                     <div class="form-group mb-3">
-                                        <input class="form-control" type="email" name="email"  placeholder="Username" value="" disabled>
+                                        <input class="form-control" type="email" name="email"  placeholder="Username" value="">
                                     </div>
 
                                     <div class="form-group">
-                                        <button class="btn btn-primary waves-effect width-md waves-light" type="submit" disabled> Reset Username</button>
+                                        <button class="btn btn-primary waves-effect width-md waves-light" type="submit"> Reset Username</button>
                                     </div>
 
 
@@ -76,7 +76,6 @@
                     <!-- end col -->
                 </div>
                 <!-- end row -->
-                <h5>*** For username or password please contact with your manager</h5>
 
             </div>
         </div>

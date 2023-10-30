@@ -64,28 +64,28 @@
                 
                              <!-- LOGO -->
                              <div class="logo-box">
-                                <a href="index.html" class="logo text-center logo-dark">
+                                <a href="index.cfm?area=dashboard&action=index" class="logo text-center logo-dark">
                                     <span class="logo-lg">
-                                        <img src="assets/images/logo.png" alt="" width="45">
+                                        <img src="assets/images/logo.png" style="width:200px">
                                         <!-- <span class="logo-lg-text-dark">Moltran</span> -->
                                     </span>
                                     <span class="logo-sm">
                                         <!-- <span class="logo-lg-text-dark">M</span> -->
-                                        <img src="assets/images/logo.png" alt="" width="45">
+                                        <img src="assets/images/logo.png" style="width:200px">
                                     </span>
                                 </a>
 
-                                <a href="/" class="logo text-center logo-light">
+                                <a href="index.cfm?area=dashboard&action=index" class="logo text-center logo-light">
                                     <span class="logo-lg">
                                         <!---<img src="assets/images/logo-light.png" alt="" height="16">--->
-                                        <img src="/assets/images/logo.png" alt="" width="45">
+                                        <img src="/assets/images/logo.png" style="width:200px">
                                         	
                                         	
                                         <!-- <span class="logo-lg-text-dark">Moltran</span> -->
                                     </span>
                                     <span class="logo-sm">
                                         <!-- <span class="logo-lg-text-dark">M</span> -->
-                                        <img src="assets/images/logo.png" alt="" width="45">
+                                        <img src="assets/images/logo.png" style="width:200px">
                                     </span>
                                 </a>
                             </div>
