@@ -1,4 +1,7 @@
 
+<cfset session.PropertyID = form.PropertyID>
+
+
 <cfquery datasource="#request.dsnameReader#" name="qTransactionSelect"> 
     SELECT 
         T.*, PS.PropertySectionName, E.ExpenseTypeName, R.ReceiptFileName, R.TransactionID AS RT, R.ReceiptFileName, R.ReceiptTitle, 
@@ -187,5 +190,9 @@
     window.parent.document.getElementById('searchResultContainer').innerHTML  = document.getElementById('searchResult').innerHTML ;  	
     window.parent.loadTable();  
     document.getElementById('searchResult').innerHTML  = ''; 
+
+    window.parent.document.getElementById('balance').innerHTML = 'Balance: <cfoutput>#dollarFormat(grandTotal)#</cfoutput>';
+
+    
     
 </script>

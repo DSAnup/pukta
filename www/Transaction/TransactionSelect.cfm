@@ -42,12 +42,14 @@
                                         <div class="col-md-3">
                                             <div class="form-group row">
                                                 <label for="PropertyID" class="col-form-label col-lg-12 sholwlog-label datasent">Property</label>
-                                                <div class="col-lg-12">												
+                                                <div class="col-lg-12">	
+                                                    <cfparam name="session.PropertyID"	 default="">										
                                                     <select class="form-control required" name="PropertyID" id="PropertyID">
                                                         <option value="">Show All</option>													
                                                         <cfloop query="qPropertySelect">
-                                                            <option value="#qPropertySelect.PropertyID#">#qPropertySelect.Property#</option>
+                                                            <option value="#qPropertySelect.PropertyID#" <cfif session.PropertyID eq qPropertySelect.PropertyID>selected</cfif>>#qPropertySelect.Property#</option>
                                                         </cfloop>
+                                                        
                                                     </select>
                                                 </div>
                                             </div>
@@ -65,7 +67,7 @@
                                         <cfif session.Profile.AppUserAccessLevelID eq 3>
                                             <cfset lastmonth= #dateadd("M", -12, now())#>
                                         <cfelse>
-                                            <cfset lastmonth= #dateadd("M", -3, now())#>
+                                            <cfset lastmonth= #dateadd("M", -12, now())#>
                                         </cfif>
 
                                         <!--- Date From --->
@@ -90,7 +92,10 @@
 
 
                                         <!--- Action Button --->
-                                        <div class="col-md-12">
+                                        <div class="col-md-6">
+                                            <h3 id="balance"></h3>
+                                        </div>
+                                        <div class="col-md-6">
                                             <div class="form-group row">
                                                 <div class="col-lg-12 d-flex justify-content-end">
                                                     <button type="submit" class="btn btn-purple waves-effect waves-light" style="min-width: 150px;">Search</button>
