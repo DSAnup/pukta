@@ -193,20 +193,18 @@
     
     var grandTotalPrice = '<cfoutput>#grandTotal#</cfoutput>';
     
-    if(grandTotalPrice >= 0){
+    if(grandTotalPrice > 0){
         window.parent.document.getElementById('balance').innerHTML = '<h4>Pukta Balance: <cfoutput>#dollarFormat(grandTotal)#</cfoutput></h4>';
     }else{
-        window.parent.document.getElementById('balance').innerHTML = '<h4 style="color:red">Pukta Balance: <cfoutput>#dollarFormat(grandTotal)#</cfoutput></h4>';
+        window.parent.document.getElementById('balance').innerHTML = '<h4 style="color:red">Pukta Balance: <cfoutput>-#dollarFormat(grandTotal)#</cfoutput></h4>';
     }
 
-    if(grandTotalPrice <= 0){
-        window.parent.document.getElementById('clientbalance').innerHTML = '<h4 style="; float:right;">Client Balance: <cfoutput>#dollarFormat(-grandTotal)#</cfoutput></h4>';
+    if(grandTotalPrice < 0){
+        window.parent.document.getElementById('clientbalance').innerHTML = '<h4 style="; float:right;">Client Balance: <cfoutput>#dollarFormat(grandTotal)#</cfoutput></h4>';
     }else{
-        window.parent.document.getElementById('clientbalance').innerHTML = '<h4 style="color:red; float:right;">Client Balance: <cfoutput>#dollarFormat(-grandTotal)#</cfoutput></h4>';
+        window.parent.document.getElementById('clientbalance').innerHTML = '<h4 style="color:red; float:right;">Client Balance: <cfoutput>-#dollarFormat(grandTotal)#</cfoutput></h4>';
     }
 
     
     
 </script>
-
-

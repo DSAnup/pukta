@@ -38,10 +38,8 @@
 		
 		<cfset request.dsnameReader = "PuktaReader">
 		<cfset request.dsnameWriter = "PuktaWriter">
-		<cfset request.imagesUploadPath = "C:\Site\admin.pukta.us\www\assets\uploads">
-		<cfset request.publicSiteDomain = "http://localhost:8086">
-		<!--- <cfset request.imagesUploadPath = "C:\Sites\admin.pukta.us\www\assets\uploads"> --->
-		<!--- <cfset request.publicSiteDomain = "http://Admin.Pukta.us"> --->
+		<cfset request.imagesUploadPath = "C:\Sites\admin.pukta.us\www\assets\uploads">
+		<cfset request.publicSiteDomain = "http://Admin.Pukta.us">
 
 		<!---<cfset request.dsnameWriter = "timetrackerWriter">--->
 		<cfset application.SystemUserID = 1>
@@ -56,7 +54,7 @@
 		<cfset onApplicationStart()> 
 		
 		<!---include the user defined functions --->		
-		<cfinclude template="fusebox/udf.cfm" >	
+		<cfinclude template="fusebox/udf.cfm" >		
 		<cfreturn true>
 	</cffunction>
 	
