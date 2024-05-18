@@ -1,5 +1,6 @@
 	
 	<cfset errorMessage = "">
+	<cfparam name="form.ShowInvoice" default="0">
 	
 	<!--- make sure all required inputs are provided --->
 	<cfif trim(form.FirstName) eq "">
@@ -36,6 +37,7 @@
 			,[PasswordHash] = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.PasswordHash#">
 			,[AppUserAccessLevelID] = <cfqueryparam cfsqltype="cf_sql_integer" value="#form.AppUserAccessLevelID#">
 			,[PropertyID] = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.PropertyID#">
+			,[ShowInvoice]  = <cfqueryparam cfsqltype="cf_sql_integer" value="#form.ShowInvoice#">
 			,[DateLastUpdated] = getDate()
 			,[UpdatedBy]  = <cfqueryparam cfsqltype="cf_sql_integer" value="#application.SystemUserID#">
 		WHERE 

@@ -53,7 +53,9 @@
                                     <th> Note</th>
                                     <cfif session.Profile.AppUserAccessLevelID neq 3>
                                         <th> Payee</th>
-                                        <th> Receipt</th>
+                                        <cfif session.Profile.ShowInvoice eq 1>
+                                            <th> Receipt</th>
+                                        </cfif>
                                         <th>Action</th>
                                     </cfif>
                                 </tr>
@@ -93,68 +95,71 @@
                                         <td>
                                             #qTransactionSelect.Payee#
                                         </td>
-                                        <td>
-                                            <cfif qTransactionSelect.ReceiptFileName neq ''>
-                                                <cfloop>
-                                                    <a href="#request.publicSiteDomain#/assets/uploads/Receipt/#qTransactionSelect.ReceiptFileName#" target="_blank">
-                                                        <cfif listLast(qTransactionSelect.ReceiptFileName, '.') eq 'jpg'  or listLast(qTransactionSelect.ReceiptFileName, '.') eq 'png' or listLast(qTransactionSelect.ReceiptFileName, '.') eq 'jpeg'>
-                                                            <i class="mdi mdi-file-image-outline md2x"  data-toggle="tooltip" data-placement="right" title="#qTransactionSelect.ReceiptTitle#"></i>
-                                                        <cfelseif listLast(qTransactionSelect.ReceiptFileName, '.') eq 'doc' or listLast(qTransactionSelect.ReceiptFileName, '.') eq 'docx'>
-                                                            <i class="mdi mdi-file-document-box-outline md2x"  data-toggle="tooltip" data-placement="right" title="#qTransactionSelect.ReceiptTitle#"></i>
-                                                        <cfelseif listLast(qTransactionSelect.ReceiptFileName, '.') eq 'xls' or listLast(qTransactionSelect.ReceiptFileName, '.') eq 'xlsx' or listLast(qTransactionSelect.ReceiptFileName, '.') eq 'csv'>
-                                                            <i class="mdi mdi-file-excel-box-outline md2x"  data-toggle="tooltip" data-placement="right" title="#qTransactionSelect.ReceiptTitle#"></i>
-                                                        <cfelse>
-                                                            <i class="mdi mdi-file-pdf-box-outline md2x"  data-toggle="tooltip" data-placement="right" title="#qTransactionSelect.ReceiptTitle#"></i>
-                                                        </cfif>
-                                                    </a>
-                                                </cfloop>
-                                            </cfif>
-                                        <cfif session.Profile.AppUserAccessLevelID neq 3>
-                                            <a data-toggle="modal" data-target="##con-close-modal_#qTransactionSelect.TransactionID#" href="##"> <i class="mdi mdi-file-plus-outline md2x" data-toggle="tooltip" data-placement="right" title="Add Reciept"></i> </a>
-                                        
-                                            <!--- Modal  --->
-                                            <div id="con-close-modal_#qTransactionSelect.TransactionID#" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                                <h5 class="modal-title">Add Reciept</h5>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <div class="row">
-                                                                <div class="col-md-12">
-                                                                <form action="/partialIndex.cfm?area=Transaction&action=TransactionRecieptInsertAction" method="post" enctype="multipart/form-data">
-                                                                    <div class="form-group">
-                                                                        <label for="ReceiptTitle">Recipt Title *</label>
-                                                                        <input type="text" name="ReceiptTitle" id="ReceiptTitle" class="form-control" value="">
+                                        <cfif session.Profile.ShowInvoice eq 1>
+                                            <td>
+                                                <cfif qTransactionSelect.ReceiptFileName neq ''>
+                                                    <cfloop>
+                                                        <a href="#request.publicSiteDomain#/assets/uploads/Receipt/#qTransactionSelect.ReceiptFileName#" target="_blank">
+                                                            <cfif listLast(qTransactionSelect.ReceiptFileName, '.') eq 'jpg'  or listLast(qTransactionSelect.ReceiptFileName, '.') eq 'png' or listLast(qTransactionSelect.ReceiptFileName, '.') eq 'jpeg'>
+                                                                <i class="mdi mdi-file-image-outline md2x"  data-toggle="tooltip" data-placement="right" title="#qTransactionSelect.ReceiptTitle#"></i>
+                                                            <cfelseif listLast(qTransactionSelect.ReceiptFileName, '.') eq 'doc' or listLast(qTransactionSelect.ReceiptFileName, '.') eq 'docx'>
+                                                                <i class="mdi mdi-file-document-box-outline md2x"  data-toggle="tooltip" data-placement="right" title="#qTransactionSelect.ReceiptTitle#"></i>
+                                                            <cfelseif listLast(qTransactionSelect.ReceiptFileName, '.') eq 'xls' or listLast(qTransactionSelect.ReceiptFileName, '.') eq 'xlsx' or listLast(qTransactionSelect.ReceiptFileName, '.') eq 'csv'>
+                                                                <i class="mdi mdi-file-excel-box-outline md2x"  data-toggle="tooltip" data-placement="right" title="#qTransactionSelect.ReceiptTitle#"></i>
+                                                            <cfelse>
+                                                                <i class="mdi mdi-file-pdf-box-outline md2x"  data-toggle="tooltip" data-placement="right" title="#qTransactionSelect.ReceiptTitle#"></i>
+                                                            </cfif>
+                                                        </a>
+                                                    </cfloop>
+                                                </cfif>
+                                                <cfif session.Profile.AppUserAccessLevelID neq 3>
+                                                    <a data-toggle="modal" data-target="##con-close-modal_#qTransactionSelect.TransactionID#" href="##"> <i class="mdi mdi-file-plus-outline md2x" data-toggle="tooltip" data-placement="right" title="Add Reciept"></i> </a>
+                                                
+                                                    <!--- Modal  --->
+                                                    <div id="con-close-modal_#qTransactionSelect.TransactionID#" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                        <h5 class="modal-title">Add Reciept</h5>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                        <form action="/partialIndex.cfm?area=Transaction&action=TransactionRecieptInsertAction" method="post" enctype="multipart/form-data">
+                                                                            <div class="form-group">
+                                                                                <label for="ReceiptTitle">Recipt Title *</label>
+                                                                                <input type="text" name="ReceiptTitle" id="ReceiptTitle" class="form-control" value="">
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="ReceiptFileName">Receipt File *</label>
+                                                                                <input type="file" name="ReceiptFileName" id="ReceiptFileName" class="form-control required" accept=".pdf, .png, .jpg, .jpeg, .doc, .docx, .xls, .xlsx, .csv">
+                                                                            </div>
+                                                                            <span id="error-filename" style="display:none; color:red">Please choose a Recipt File *</span>
+                                                                            <div class="form-group">
+                                                                                <label for="Note">Note</label>
+                                                                                <textarea class="form-control" rows="6" id="example-textarea-input" name="Note"></textarea>
+                                                                            </div>
+                                                                            <input type="hidden" name="TransactionID" value="#qTransactionSelect.TransactionID#" />
+                                                                            <div class="float-right">
+                                                                                <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal">Cancel</button>
+                                                                                <button type="reset" class="btn btn-pink waves-effect waves-light">Reset</button>
+                                                                                <button type="submit" class="btn btn-purple waves-effect waves-light">Add Receipt</button>
+                                                                            </div>
+                                                                        </form>
                                                                     </div>
-                                                                    <div class="form-group">
-                                                                        <label for="ReceiptFileName">Receipt File *</label>
-                                                                        <input type="file" name="ReceiptFileName" id="ReceiptFileName" class="form-control required" accept=".pdf, .png, .jpg, .jpeg, .doc, .docx, .xls, .xlsx, .csv">
-                                                                    </div>
-                                                                    <span id="error-filename" style="display:none; color:red">Please choose a Recipt File *</span>
-                                                                    <div class="form-group">
-                                                                        <label for="Note">Note</label>
-                                                                        <textarea class="form-control" rows="6" id="example-textarea-input" name="Note"></textarea>
-                                                                    </div>
-                                                                    <input type="hidden" name="TransactionID" value="#qTransactionSelect.TransactionID#" />
-                                                                    <div class="float-right">
-                                                                        <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal">Cancel</button>
-                                                                        <button type="reset" class="btn btn-pink waves-effect waves-light">Reset</button>
-                                                                        <button type="submit" class="btn btn-purple waves-effect waves-light">Add Receipt</button>
-                                                                    </div>
-                                                                </form>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                            <!-- /.modal -->
+                                                    <!-- /.modal -->
+                                                </cfif>
+        
+                                            </td>
+
                                         </cfif>
-    
-                                        </td>
                                         <td>
                                             <a href="index.cfm?area=#url.area#&action=TransactionUpdate&TransactionID=#TransactionID#">Edit</a>
                                         </td>
