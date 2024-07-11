@@ -12,7 +12,7 @@
     FROM TransactionDetails AS T 
         LEFT JOIN Property AS P ON T.PropertyID = P.PropertyID
     WHERE 1=1
-        <cfif session.Profile.AppUserAccessLevelID eq 3>
+        <cfif session.Profile.AppUserAccessLevelID eq 3 or session.Profile.PropertyID neq "">
             AND T.PropertyID IN (#session.Profile.PropertyID#)
         </cfif>
         <cfif trim(form.PropertyID) neq "">

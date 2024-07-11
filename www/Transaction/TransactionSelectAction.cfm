@@ -13,7 +13,7 @@
         LEFT JOIN ExpenseType AS E ON T.ExpenseTypeID = E.ExpenseTypeID	
         LEFT JOIN Receipt AS R ON T.TransactionID = R.TransactionID   
     WHERE 1=1
-        <cfif session.Profile.AppUserAccessLevelID eq 3>
+        <cfif session.Profile.AppUserAccessLevelID eq 3 or session.Profile.PropertyID neq "">
             AND T.PropertyID IN (#session.Profile.PropertyID#)
         </cfif>
         <cfif trim(form.PropertyID) neq "">

@@ -37,10 +37,12 @@
 							<a href="index.cfm?area=Transaction&action=TransactionSelect">
 							<i class="mdi mdi-equalizer"></i> Expense </a>
 						</li>
-						<li class="has-submenu">
-							<a href="index.cfm?area=Balance&action=BalanceSelect">
-							<i class="mdi mdi-equalizer"></i> Balance </a>
-						</li>
+						<cfif session.Profile.ShowBalance eq 1>
+							<li class="has-submenu">
+								<a href="index.cfm?area=Balance&action=BalanceSelect">
+								<i class="mdi mdi-equalizer"></i> Balance </a>
+							</li>
+						</cfif>
 				<cfelseif session.Profile.isLoggedIn eq true and session.Profile.AppUserAccessLevelID eq 3>
 					<li class="has-submenu">
 						<a href="index.cfm?area=dashboard&action=index">

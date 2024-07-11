@@ -1,4 +1,4 @@
-<cfif session.Profile.AppUserAccessLevelID eq 3>
+<cfif session.Profile.AppUserAccessLevelID eq 3 or session.Profile.PropertyID neq "">
     <cfquery datasource="#request.dsnameReader#" name="qPropertySelect"> 
         SELECT CONCAT(P.AddressLine1,' - ', P.City ,' - ', (SELECT stateName FROM State WHERE StateID = P.StateID) ,' - ', P.ZipCode) AS Property, P.PropertyID
         FROM  Property AS P

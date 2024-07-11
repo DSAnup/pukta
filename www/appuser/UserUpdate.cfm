@@ -1,5 +1,5 @@
 <cfquery datasource="#request.dsnameReader#" name="qSelecUser"> 
-  select FirstName, LastName, Email, PasswordHash, AppUserAccessLevelID, PropertyID, ShowInvoice
+  select FirstName, LastName, Email, PasswordHash, AppUserAccessLevelID, PropertyID, ShowInvoice, ShowBalance
 	from Appuser where AppUserID = <cfqueryparam cfsqltype="cf_sql_integer" value=" #url.AppUserID#">        
 </cfquery>
 
@@ -68,9 +68,15 @@
 								</div>
 							</div>
 							<div class="form-group row">
-								<label class="col-lg-2 control-label" for="Email">Show Invoice</label>
+								<label class="col-lg-2 control-label" for="show_invoice">Show Invoice</label>
 								<div class="col-lg-10">
 									<input class="form-check-input"  <cfif qSelecUser.ShowInvoice eq 1>checked</cfif> type="checkbox" value="1" id="ShowInvoice" name="ShowInvoice">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-lg-2 control-label" for="show_balance">Show Balance</label>
+								<div class="col-lg-10">
+									<input class="form-check-input"  <cfif qSelecUser.ShowBalance eq 1>checked</cfif> type="checkbox" value="1" id="ShowBalance" name="ShowBalance">
 								</div>
 							</div>
 						</div>
