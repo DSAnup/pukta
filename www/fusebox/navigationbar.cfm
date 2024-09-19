@@ -43,6 +43,14 @@
 								<i class="mdi mdi-equalizer"></i> Balance </a>
 							</li>
 						</cfif>
+						<li class="has-submenu">
+							<a href="##">
+							<i class="mdi mdi-protocol"></i> Document </a>
+							<ul class="submenu">
+								<li><a href="index.cfm?area=DocumentType&action=DocumentTypeSelect"> <i class="mdi mdi-protocol"></i> Document Type Manager</a></li>
+								<li><a href="index.cfm?area=Document&action=DocumentSelect"> <i class="mdi mdi-protocol"></i> Document Manager</a></li>
+							</ul>
+						</li>
 				<cfelseif session.Profile.isLoggedIn eq true and session.Profile.AppUserAccessLevelID eq 3>
 					<li class="has-submenu">
 						<a href="index.cfm?area=dashboard&action=index">
