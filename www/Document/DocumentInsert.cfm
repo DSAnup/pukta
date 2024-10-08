@@ -47,14 +47,14 @@
                                       </div>
                                       <div class="form-group">
                                           <label for="DocumentTypeID">Document Type </label>
-                                          <select class="form-control required" name="DocumentTypeID">
+                                          <select class="form-control required" name="DocumentTypeID" id="DocumentTypeID">
                                               <option value="">Choose a Document Type </option>
                                               <cfloop query="qDocumentTypeSelect">
                                                   <option value="#qDocumentTypeSelect.DocumentTypeID#">#qDocumentTypeSelect.DocumentTypeName#</option>
                                               </cfloop>
                                           </select>
                                       </div>
-                                      <div class="form-group">
+                                      <div class="form-group" id="description-group" style="display:none;">
                                         <label for="DocumentDescription">Description</label>
                                         <textarea class="form-control" rows="5" id="example-textarea-input" name="DocumentDescription"></textarea>
                                     </div>
@@ -96,6 +96,19 @@
 </div>									
                           
                           
+<script>
+    document.getElementById('DocumentTypeID').addEventListener('change', function() {
+        var descriptionGroup = document.getElementById('description-group');
+        var selectedOptionText = this.options[this.selectedIndex].text;
+        
+        // Check if a valid DocumentTypeID is selected
+        if (selectedOptionText === "Others") {
+            descriptionGroup.style.display = "block";  // Show the textarea
+        } else {
+            descriptionGroup.style.display = "none";  // Hide the textarea
+        }
+    });
+</script>
 
 
 
