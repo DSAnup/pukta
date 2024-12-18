@@ -3,7 +3,7 @@
     FROM  Property  AS P
 		LEFT JOIN State AS S ON P.StateID = S.StateID
 	WHERE 1=1
-	<cfif session.Profile.AppUserAccessLevelID eq 3 or session.Profile.PropertyID neq "">
+	<cfif session.Profile.AppUserAccessLevelID eq 3 or session.Profile.PropertyID neq "" and session.Profile.AppUserAccessLevelID neq 1>
 		AND P.PropertyID IN (#session.Profile.PropertyID#)
 	</cfif>       
 </cfquery>
