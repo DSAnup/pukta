@@ -52,7 +52,7 @@
                                             <select class="form-control" name="PropertyID">
                                                 <option value="">Choose a Property</option>
                                                 <cfloop query="qPropertySelect">
-                                                    <option value="#qPropertySelect.PropertyID#">#qPropertySelect.Property#</option>
+                                                    <option value="#qPropertySelect.PropertyID#" <cfif session.PropertyID eq qPropertySelect.PropertyID>selected</cfif>>#qPropertySelect.Property#</option>
                                                 </cfloop>
                                             </select>
                                         </div>

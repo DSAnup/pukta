@@ -67,18 +67,6 @@
 									<input id="Email" name="Email" type="text" class="required form-control" value="#qSelecUser.Email#" >
 								</div>
 							</div>
-							<div class="form-group row">
-								<label class="col-lg-2 control-label" for="show_invoice">Show Invoice</label>
-								<div class="col-lg-10">
-									<input class="form-check-input"  <cfif qSelecUser.ShowInvoice eq 1>checked</cfif> type="checkbox" value="1" id="ShowInvoice" name="ShowInvoice">
-								</div>
-							</div>
-							<div class="form-group row">
-								<label class="col-lg-2 control-label" for="show_balance">Show Balance</label>
-								<div class="col-lg-10">
-									<input class="form-check-input"  <cfif qSelecUser.ShowBalance eq 1>checked</cfif> type="checkbox" value="1" id="ShowBalance" name="ShowBalance">
-								</div>
-							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group row">
@@ -87,31 +75,47 @@
 									<input id="Password" name="passwordHash" type="password" class="required form-control" value="#qSelecUser.passwordHash#">
 								</div>
 							</div>
-							<div class="form-group">
-								<label for="AppUserAccessLevelID">Access Level *</label>
-								<select class="form-control" name="AppUserAccessLevelID">
-									<cfloop query="qAppUserAccessLevelSelect">
-										<option value="#qAppUserAccessLevelSelect.AppUserAccessLevelID#" <cfif qAppUserAccessLevelSelect.AppUserAccessLevelID eq qSelecUser.AppUserAccessLevelID>selected</cfif>>#qAppUserAccessLevelSelect.AccessLevelName#</option>
-									</cfloop>
-								</select>
+							<div class="form-group row">
+								<label class="col-lg-2 control-label" for="AppUserAccessLevelID">Access Level *</label>
+								<div class="col-lg-10">
+									<select class="form-control" name="AppUserAccessLevelID">
+										<cfloop query="qAppUserAccessLevelSelect">
+											<option value="#qAppUserAccessLevelSelect.AppUserAccessLevelID#" <cfif qAppUserAccessLevelSelect.AppUserAccessLevelID eq qSelecUser.AppUserAccessLevelID>selected</cfif>>#qAppUserAccessLevelSelect.AccessLevelName#</option>
+										</cfloop>
+									</select>
+								</div>
 							</div>
-							<div class="form-group" style="margin-left:20px;">
-								<input type="hidden" name="PropertyID">
-								<cfloop query="qPropertySelect">
-									<input class="form-check-input"  <cfif listFind(qSelecUser.PropertyID, qPropertySelect.PropertyID)>checked</cfif> type="checkbox" value="#qPropertySelect.PropertyID#" id="PropertyID" name="PropertyID">
+							<div class="form-group row">
+								
+								<label class="col-lg-2 control-label" for="show_invoice">Show Invoice</label>
+								<div class="col-lg-4">
+									<input class="form-check-input"  <cfif qSelecUser.ShowInvoice eq 1>checked</cfif> type="checkbox" value="1" id="ShowInvoice" name="ShowInvoice">
+								</div>
+								<label class="col-lg-2 control-label" for="show_balance">Show Balance</label>
+								<div class="col-lg-4">
+									<input class="form-check-input"  <cfif qSelecUser.ShowBalance eq 1>checked</cfif> type="checkbox" value="1" id="ShowBalance" name="ShowBalance">
+								</div>
+							</div>
+						</div>
+							<label class="control-label col-md-12" for="property_assign">Property Assign</label><br>
+							<input type="hidden" name="PropertyID">
+							<cfloop query="qPropertySelect">
+								<div class="col-md-3" style="margin-left:20px;">
+								<input class="form-check-input"  <cfif listFind(qSelecUser.PropertyID, qPropertySelect.PropertyID)>checked</cfif> type="checkbox" value="#qPropertySelect.PropertyID#" id="PropertyID" name="PropertyID">
 									<label class="form-check-label" for="#qPropertySelect.PropertyID#" style="padding-right:25px;" >
 										#qPropertySelect.AddressLine1#, #qPropertySelect.City#
 									</label>
+								</div>
 								</cfloop>
+							<div class="col-md-12">
+								<div class="form-group row custom-form-group">
+									<label class="col-lg-12 control-label">(*) Mandatory</label>
+								</div>
+								<div class="form-group custom-form-group">
+									<input type="hidden" name="AppUserID" value="#url.AppUserID#" />
+									<input type="submit" name="updateuser" value="Update" class="btn btn-success custom-btn">
+								</div>
 							</div>
-							<div class="form-group row custom-form-group">
-								<label class="col-lg-12 control-label">(*) Mandatory</label>
-							</div>
-							<div class="form-group custom-form-group">
-								<input type="hidden" name="AppUserID" value="#url.AppUserID#" />
-								<input type="submit" name="updateuser" value="Update" class="btn btn-success custom-btn">
-							</div>
-						</div>
 
 						</form>
 						</cfoutput>

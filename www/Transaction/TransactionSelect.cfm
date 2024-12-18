@@ -26,7 +26,6 @@
 </div>
 
 
-
 <div class="row">
 	<div class="col-md-12">
 		<div class="card">
@@ -39,7 +38,7 @@
                                 <form id="formTransactionSelect" action="/partialIndex.cfm?area=Transaction&action=TransactionSelectAction" method="post" target="formpost">
                                     <div class="row">
 
-                                        <div class="col-md-3">
+                                        <div class="col-md-5">
                                             <div class="form-group row">
                                                 <label for="PropertyID" class="col-form-label col-lg-12 sholwlog-label datasent">Property</label>
                                                 <div class="col-lg-12">	
@@ -71,7 +70,7 @@
                                         </cfif>
 
                                         <!--- Date From --->
-                                        <div class="col-md-3">
+                                        <div class="col-md-2">
                                             <div class="form-group row">
                                                 <label for="dateFrom" class="col-form-label col-lg-12">Date From</label>
                                                 <div class="col-lg-12">
@@ -81,7 +80,7 @@
                                         </div>
 
                                         <!--- Date To --->
-                                        <div class="col-md-3">
+                                        <div class="col-md-2">
                                             <div class="form-group row">
                                                 <label for="dateTo" class="col-form-label col-lg-12">Date To</label>
                                                 <div class="col-lg-12">
@@ -96,6 +95,7 @@
                                         </div>
                                         <div class="col-md-4" id="clientbalance">
                                         </div>
+                                        
                                         <div class="col-md-4">
                                             <div class="form-group row">
                                                 <div class="col-lg-12 d-flex justify-content-end">
