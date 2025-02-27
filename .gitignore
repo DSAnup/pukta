@@ -9,5 +9,4 @@
 *.sln
 
 # Folder restriction
-www/application.cfc
 www/assets/uploads/
